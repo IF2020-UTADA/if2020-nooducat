@@ -1,1 +1,64 @@
-/* No CSS *//*# sourceMappingURL=index.css.map */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+}
+
+.section {
+  height: 100%;
+}
+
+.subsection {
+  width: 100%;
+}
+
+#webColSec {
+  width: 8%;
+  background-color: #e3b4b8;
+}
+
+#mainColSec {
+  width: 68%;
+  background-color: #c08eaf;
+}
+
+#mainColSec #headRowSec {
+  height: 18%;
+  background-color: #d1c2d3;
+}
+
+#mainColSec #searchRowSec {
+  height: 12%;
+  background-color: #a4cab6;
+}
+
+#mainColSec #tipsRowSec {
+  height: 50%;
+  background-color: #d0dfe6;
+}
+
+#mainColSec #newsRowSec {
+  height: 20%;
+  background-color: #f8e8c1;
+}
+
+#suggestColSec {
+  width: 25%;
+  background-color: #93d5dc;
+}
+/*# sourceMappingURL=index.css.map */
