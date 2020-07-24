@@ -2,8 +2,8 @@ var x = 0,
 container = $('.center'),
 items = container.find('li'),
 containerHeight = 0,
-numberVisible = 3,
-intervalSec = 1;
+numberVisible = 1,
+intervalSec = 3000;
 
 if(!container.find('li:first').hasClass("first")){
 container.find('li:first').addClass("first");
@@ -23,7 +23,7 @@ var firstItem = container.find('li.first').html();
 
 container.append('<li>'+firstItem+'</li>');
 firstItem = '';
-container.find('li.first').animate({ marginTop: "-50px" }, 600, function(){  $(this).remove(); container.find('li:first').addClass("first"); });
+container.find('li.first').animate({ marginTop: "-6em" }, 1500, function(){  $(this).remove(); container.find('li:first').addClass("first"); });
 }
 
 if(intervalSec < 700){
