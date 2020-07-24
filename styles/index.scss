@@ -90,3 +90,38 @@ body{
     width: 25%;
     background-color: #93d5dc;
 }
+
+////////////////////////News Section//////////////////////
+body {
+    font-family: 'Raleway', sans-serif;
+    background: rgba(0,0,0,0.4);
+  }
+  
+  .center {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 10px solid #fff;
+    box-shadow: 0px 2px 3px #eaeaea;
+  
+  }
+  
+  li {
+    background: #f7f7f7;
+    color: #ddd;
+    list-style-type: none;
+    padding: 1em;
+    margin: 0;
+    transition: background-color 0.5s;
+  }
+  
+  ul.center li:nth-child(2) {
+    color: #fff;
+    background: rgb(115, 180, 174);
+  }
+  
+  li:hover {
+    color: #fff;
+    background: orange;
+  }
+////////////////////////End News Section//////////////////
