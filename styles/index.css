@@ -64,12 +64,10 @@ body {
 
 .center {
   position: auto;
-  padding: 0;
-  margin: 5px;
-  border: 5px outset #f8e8c1;
-  -webkit-box-shadow: 0px 2px 3px #f8e8c1;
-          box-shadow: 0px 2px 3px #f8e8c1;
-  border-radius: 20px;
+  padding: 0%;
+  margin: 1%;
+  border: 10% none #f8e8c1;
+  border-radius: 10em;
 }
 
 li {
@@ -77,10 +75,11 @@ li {
   color: #797979;
   font-size: 20px;
   list-style-type: none;
-  padding: 3em;
-  margin: 0;
+  padding: 5%;
+  margin: 0%;
   -webkit-transition: background-color 1s;
   transition: background-color 1s;
+  word-wrap: break-word;
 }
 
 li:hover {

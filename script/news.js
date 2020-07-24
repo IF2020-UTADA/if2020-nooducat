@@ -23,7 +23,7 @@ var firstItem = container.find('li.first').html();
 
 container.append('<li>'+firstItem+'</li>');
 firstItem = '';
-container.find('li.first').animate({ marginTop: "-6em" }, 1500, function(){  $(this).remove(); container.find('li:first').addClass("first"); });
+container.find('li.first').animate({ marginTop: -containerHeight }, 1500, function(){  $(this).remove(); container.find('li:first').addClass("first"); });
 }
 
 if(intervalSec < 700){
