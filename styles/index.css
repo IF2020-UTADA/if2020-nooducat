@@ -38,44 +38,15 @@ body {
 }
 
 #mainColSec #headRowSec {
-  height: 18%;
+  height: 25%;
   background-color: #d1c2d3;
 }
 
-#mainColSec #searchRowSec {
-  height: 12%;
-  background-color: #a4cab6;
-}
-
-/*------------------------------------------------------------------------------Tips Starts-----------------------------------------*/
 #mainColSec #tipsRowSec {
-  height: 50%;
+  height: 55%;
   background-color: #d0dfe6;
 }
 
-        
-#mainColSec #tipsRowSec #tips-presentation{
-  animation-name: fadein;
-  animation-duration: 1s;
-}
-
-#mainColSec #tipsRowSec .card{
-  height: 22em;
-}
-
-
-@keyframes fadein {
-  0% {
-      opacity: 0;
-      transform: translateY(3em);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0em);
-    }
-}
-
-/*------------------------------------------------------------------------------Tips Ends-----------------------------------------*/
 #mainColSec #newsRowSec {
   height: 20%;
   background-color: #f8e8c1;
