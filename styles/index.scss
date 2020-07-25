@@ -91,11 +91,26 @@ body{
 #mainColSec {
     width: 68%;
 
-    background-color: #c08eaf;
 
     #headRowSec {
         height: 25%;
-        background-color: #d99fe0;
+        // background-color: transparent;
+        display: flex;
+        flex-direction: row;
+
+        #weatherAndSearchSec {
+            width: 35%;
+
+
+        }
+
+        #noteSec{
+            width: 55%;
+        }
+
+        #emotionSec{
+            width: 10%;
+        }
     }
 
 
@@ -114,6 +129,130 @@ body{
     width: 25%;
     background-color: #93d5dc;
 }
+
+
+
+///////////////////////// Weather Section ///////////////////////
+
+#weatherCard, #note, #emoBtn{
+    margin-top: 1rem;
+    border-radius: 20px;
+}
+
+#weatherCard, #search{
+    width: 80%;
+}
+
+#weatherCard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 5rem;
+
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+
+    
+    background-color: #9BD1F5;
+
+    #weatherIcon {
+        margin-right: 1rem;
+        a{
+            position: relative;
+            bottom: 8px;
+            font-size: 3rem;
+        }
+    }
+
+    #weatherInfo {
+        flex-direction: column;
+        color: $dark-bg;
+
+        h4{
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        span{
+            margin-left: 2rem;
+        }
+
+        span::after{
+            content: "℃";
+        }
+
+    }
+}
+///////////////////////// End Weather Section ///////////////////////
+
+///////////////////////// Search Section ///////////////////////
+#search{
+    margin-top: 0.9rem;
+    position: relative;
+    width: 80%;
+    
+
+    input{
+        width: 100%;
+        height: 2.5rem;
+        padding-left: 1rem;
+        padding-right: 2rem;
+
+        border-radius: 20px;
+        border:none;
+        outline:none !important;
+    }
+
+    #searchSubmit{
+        width: 2rem;
+        position: absolute;
+        right: 0.8rem;
+        font-size: 1.5rem;
+    }
+}
+
+///////////////////////// End Search Section ///////////////////////
+
+///////////////////////// Note Section ///////////////////////
+#noteSec{
+    position: relative;
+    #penIcon{
+        position: absolute;
+        top:1rem;
+        right: 1rem;
+        
+        font-size: 2rem;
+    }
+}
+
+#note{
+    width: 100%;
+    height: 80%;
+    padding-left: 1rem;
+    padding-right: 4rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+
+    resize: none;
+    outline:none !important;
+    // overflow: hidden;
+
+    border:none;
+    background-color: $light-paper;
+}
+
+///////////////////////// End Note Section ///////////////////////
+
+///////////////////////// Emotion Section ///////////////////////
+#emoBtn{
+    width: 100%;
+
+    border: none;
+    background: transparent;
+    outline: none !important;
+}
+///////////////////////// End Emotion Section ///////////////////////
 
 ////////////////////////News Section////////////////////// 
 .center {
