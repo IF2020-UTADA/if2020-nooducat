@@ -85,23 +85,19 @@ body{
     width: 8%;
 
     background-color: #e3b4b8;
-    
+
 }
 
 #mainColSec {
     width: 68%;
 
-
     #headRowSec {
         height: 25%;
-        // background-color: transparent;
         display: flex;
         flex-direction: row;
 
         #weatherAndSearchSec {
             width: 35%;
-
-
         }
 
         #noteSec{
@@ -175,7 +171,7 @@ body{
         }
 
         span{
-            margin-left: 2rem;
+            margin-left: 1.5rem;
         }
 
         span::after{
@@ -197,7 +193,7 @@ body{
         width: 100%;
         height: 2.5rem;
         padding-left: 1rem;
-        padding-right: 2rem;
+        padding-right: 2.5rem;
 
         border-radius: 20px;
         border:none;
@@ -209,6 +205,10 @@ body{
         position: absolute;
         right: 0.8rem;
         font-size: 1.5rem;
+
+        background: none;
+        border: none;
+        outline: none !important;
     }
 }
 
@@ -236,10 +236,9 @@ body{
 
     resize: none;
     outline:none !important;
-    // overflow: hidden;
-
     border:none;
     background-color: $light-paper;
+    box-shadow: 1px 1px 5px gray;
 }
 
 ///////////////////////// End Note Section ///////////////////////
@@ -251,6 +250,10 @@ body{
     border: none;
     background: transparent;
     outline: none !important;
+
+    h1{
+        text-shadow: 1px 1px 5px gray;
+    }
 }
 ///////////////////////// End Emotion Section ///////////////////////
 
