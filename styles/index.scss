@@ -35,7 +35,7 @@ $dark-paper: #595959;
     color: $light-accent;
 }
 
-.light-accent{
+.dark-accent{
     background-color: $dark-accent;
     color: $light-bg;
 }
@@ -105,8 +105,9 @@ body{
     }
 
     #newsRowSec{
-        height: 20%;
+        height: 20%;    
         background-color:#f8e8c1;
+
     }
 }
 
@@ -115,33 +116,44 @@ body{
     background-color: #93d5dc;
 }
 
-////////////////////////News Section////////////////////// 
-.center {
-    position: auto;
-    padding: 0%;
-    margin: 1%;
-    border: 10% none #f8e8c1;
-    border-radius: 10em;
-  }
-  
-  li {
-    background: #f7f7f7d5;
-    color: rgb(121, 121, 121);
-    font-size: 20px;
-    list-style-type: none;
-    padding: 5%;
-    margin: 0%;
-    transition: background-color 1s;
-    word-wrap: break-word;
-  }
-  
- // ul.center li:nth-child(1) {
- //   color: #fff;
- //   background: rgb(115, 180, 174);
- // }
-  
-  li:hover {
-    color: #fff;
-    background: rgb(209, 209, 209);
-  }
-////////////////////////End News Section//////////////////
+/////////////////////News Section/////////////////////////////
+.newssection{
+    display: flex;
+    align-items: center;
+}
+
+
+#newsPart{
+    position: relative;
+    width: 90%;
+    height: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25em;
+    padding-left: 2em;
+    padding-right: 0;
+    
+    
+}
+
+#newsText{
+    font-size: 1.8em;
+    color: $dark-accent;
+    width: 95%;
+    height: 5em;
+    line-height: 5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+#newsText:hover{
+    color: $dark-bg;
+}
+#newsText::before{
+    content: "💥  ";
+    font-size: 200%;
+    vertical-align: -7% ;
+
+}
+
