@@ -12,6 +12,34 @@
 // %shadow{
 //     box-shadow: 0 0 0 black;
 // }
+$light-bg: #f3f3f3;
+$light-accent: #ffffff;
+$light-paper: #F8DE7E;
+
+$dark-bg: #363636;
+$dark-accent: #444444;
+$dark-paper: #595959;
+
+.light{
+    background-color: $light-bg;
+    color: $dark-accent;
+}
+
+.light-accent{
+    background-color: $light-accent;
+    color: $dark-bg;
+}
+
+.dark{
+    background-color: $dark-bg;
+    color: $light-accent;
+}
+
+.light-accent{
+    background-color: $dark-accent;
+    color: $light-bg;
+}
+
 
 html, body{
     height: 100%;

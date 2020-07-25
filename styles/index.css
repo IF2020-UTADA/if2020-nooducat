@@ -1,3 +1,23 @@
+.light {
+  background-color: #f3f3f3;
+  color: #444444;
+}
+
+.light-accent {
+  background-color: #ffffff;
+  color: #363636;
+}
+
+.dark {
+  background-color: #363636;
+  color: #ffffff;
+}
+
+.light-accent {
+  background-color: #444444;
+  color: #f3f3f3;
+}
+
 html, body {
   height: 100%;
   width: 100%;
