@@ -12,13 +12,36 @@
 
 </head>
 
-<body>
+<body class="light">
     <div class="section" id="webColSec">
         常用网址
     </div>
     <div class="section" id="mainColSec">
         <div class="subsection" id="headRowSec">
-            天气
+            <div id="weatherAndSearchSec">
+              <div class="mx-auto" id="weatherCard">
+                <div class="" id="weatherIcon">
+                  <a href="#">🌧</a>
+                </div>
+                <div class="my-auto" id="weatherInfo">
+                    <h4 id="weatherType"> Rain <span>25</span></h4>
+                    <h6>Toronto, ON</h6>
+                </div>
+              </div>
+              <form class="mx-auto" id="search" action="http://www.google.com/search" method="get" >
+                <input type="text" name="q" value="">
+                <button id="searchSubmit" value="Search" type="submit">🔍</button>
+              </form>
+            </div>
+            <div id="noteSec">
+              <textarea name="note" id="note" rows="4"></textarea>
+              <a id="penIcon">✒</a>
+            </div>
+            <div id="emotionSec">
+              <button class="mx-auto" id="emoBtn">
+                <h1>😀</h1>
+              </button>
+            </div>
         </div>
         <div class="subsection" id="tipsRowSec">
 
@@ -218,18 +241,42 @@
     </div>
     <div class="section" id="suggestColSec">
         You might like this:
-        <div style="width:300px;height:600px;line-height:5em;overflow:auto;padding:5px;">
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars. 
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars.
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars.
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars.
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars.
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars.
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars. 
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars.
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars.
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars.
-            This 'div' element contains more content than the previous one. Because there's too much text to fit into the box, the box grows scrollbars.
+        <div class = "mx-auto" style="width:300px;height:600px;line-height:5em;overflow:auto;">
+          <div class="card" style="width:270px;height:280px;margin:20px;border-radius: 15px 15px 15px 15px;" >
+            <img class = "mx-auto" src="./images/LS10.jpg" style="width:250px;height:230px;padding:10px;margin-bottom:-20px;border-radius: 25px 25px 25px 25px;">
+            <div style="text-align:center;margin-top:0px">
+              <a style="text-decoration:none;" href="https://fcbayern.com/en/news/2020/07/leroy-sane-signs-for-fc-bayern-munich-on-five-year-contract">
+                Leory Sane Signed for Bayern
+              </a>
+            </div>
+          </div>
+
+          <div class="card" style="width:270px;height:280px;margin:20px;border-radius: 15px 15px 15px 15px;" >
+            <img class = "mx-auto" src="./images/LS10.jpg" style="width:250px;height:230px;padding:10px;margin-bottom:-20px;border-radius: 25px 25px 25px 25px;">
+            <div style="text-align:center;margin-top:0px">
+              <a style="text-decoration:none;" href="https://fcbayern.com/en/news/2020/07/leroy-sane-signs-for-fc-bayern-munich-on-five-year-contract">
+                Leory Sane Signed for Bayern
+              </a>
+            </div>
+          </div>
+
+          <div class="card" style="width:270px;height:280px;margin:20px;border-radius: 15px 15px 15px 15px;" >
+            <img class = "mx-auto" src="./images/LS10.jpg" style="width:250px;height:230px;padding:10px;margin-bottom:-20px;border-radius: 25px 25px 25px 25px;">
+            <div style="text-align:center;margin-top:0px">
+              <a style="text-decoration:none;" href="https://fcbayern.com/en/news/2020/07/leroy-sane-signs-for-fc-bayern-munich-on-five-year-contract">
+                Leory Sane Signed for Bayern
+              </a>
+            </div>
+          </div>
+
+          <div class="card" style="width:270px;height:280px;margin:20px;border-radius: 15px 15px 15px 15px;" >
+            <img class = "mx-auto" src="./images/LS10.jpg" style="width:250px;height:230px;padding:10px;margin-bottom:-20px;border-radius: 25px 25px 25px 25px;">
+            <div style="text-align:center;margin-top:0px">
+              <a style="text-decoration:none;" href="https://fcbayern.com/en/news/2020/07/leroy-sane-signs-for-fc-bayern-munich-on-five-year-contract">
+                Leory Sane Signed for Bayern
+              </a>
+            </div>
+          </div>
         </div>
     </div>
 
@@ -261,6 +308,8 @@
             </div>
         </div>
     </script>
+
+
     <!-- My js -->
     <script src="./script/news.js"></script>
 </body>
