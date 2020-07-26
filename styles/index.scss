@@ -82,7 +82,7 @@ body{
 
 
 #webColSec {
-    width: 8%;
+    width: 7%;
 
     background-color: #e3b4b8;
     
@@ -159,4 +159,51 @@ body{
     vertical-align: -7% ;
 
 }
+/////////////////////End News Section////////////////////////
+/////////////////////Websites Section////////////////////////
+.webicon{
+    position: relative;
+    width: 50%;
+    height: 7%;
+    text-align: center;
+    line-height: 130%;
+    background-color: $light-accent;
+    font-size: 300%;
+    color: $light-accent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25%;
+    margin-top: 20px;
+    margin-bottom: 1px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
+.webicon:onclick{
+    
+}
+.webicon:hover{
+    opacity: 0.8;
+}
+#webOne{
+    background-color: #ff4040;
+}
+#webTwo{
+    background-color: #013a6f; 
+} 
+#webThree{
+    background-color: #ff7a7a;
+} 
+#webFour{
+    background-color: #0078d4;
+} 
+#webFive{
+    background-color: #ff0000;
+}
+#webSix{
+    background-color: #24292e;
+}
+
+.websubtitle{
+    text-align: center;
+    font-size: 150%;
+}
