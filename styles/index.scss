@@ -82,9 +82,8 @@ body{
 
 
 #webColSec {
-    width: 8%;
+    width: 7%;
 
-    background-color: #e3b4b8;
 
 }
 
@@ -117,7 +116,6 @@ body{
 
     #newsRowSec{
         height: 20%;    
-        background-color:#f8e8c1;
 
     }
 }
@@ -125,6 +123,73 @@ body{
 #suggestColSec {
     width: 25%;
     background-color: #93d5dc;
+}
+
+
+/////////////////////Websites Section////////////////////////
+.webicon{
+    position: relative;
+    width: 60%;
+    height: 8%;
+    text-align: center;
+    line-height: 150%;
+    background-color: $light-accent;
+    font-size: 300%;
+    color: $light-accent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25%;
+    margin-top: 20px;
+    margin-bottom: 1px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.webicon:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.websubtitle:hover{
+    opacity: 1.5;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#webOne{
+    background-color: #ff4040;
+}
+#webTwo{
+    background-color: #013a6f; 
+} 
+#webThree{
+    background-color: #ff7a7a;
+} 
+#webFour{
+    background-color: #0078d4;
+} 
+#webFive{
+    background-color: #ff0000;
+}
+#webSix{
+    background-color: #24292e;
+}
+
+.websubtitle{
+    text-align: center;
+    font-size: 150%;
+}
+
+.editbar{
+    background-color: $dark-accent;
+    margin:auto;
+    margin-top: 15%;
+    width: 60%;
+    height: 10px;
+    border-radius: 25em;
+}
+
+.editbar:hover{
+    opacity: 0.5;
 }
 
 
@@ -256,6 +321,7 @@ body{
     }
 }
 ///////////////////////// End Emotion Section ///////////////////////
+
 
 ///////////////////////// Tips Section ///////////////////////////////
 
