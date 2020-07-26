@@ -113,6 +113,10 @@ body {
   color: #363636;
 }
 
+#newsPart:hover {
+  background-color: #e7e5e5;
+}
+
 #newsText::before {
   content: "💥  ";
   font-size: 200%;
