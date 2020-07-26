@@ -50,17 +50,33 @@ body {
 
 #webColSec {
   width: 7%;
-  background-color: #e3b4b8;
 }
 
 #mainColSec {
   width: 68%;
-  background-color: #c08eaf;
 }
 
 #mainColSec #headRowSec {
   height: 25%;
-  background-color: #d99fe0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#mainColSec #headRowSec #weatherAndSearchSec {
+  width: 35%;
+}
+
+#mainColSec #headRowSec #noteSec {
+  width: 55%;
+}
+
+#mainColSec #headRowSec #emotionSec {
+  width: 10%;
 }
 
 #mainColSec #tipsRowSec {
@@ -70,7 +86,6 @@ body {
 
 #mainColSec #newsRowSec {
   height: 20%;
-  background-color: #f8e8c1;
 }
 
 #suggestColSec {
@@ -125,10 +140,10 @@ body {
 
 .webicon {
   position: relative;
-  width: 50%;
-  height: 7%;
+  width: 60%;
+  height: 8%;
   text-align: center;
-  line-height: 130%;
+  line-height: 150%;
   background-color: #ffffff;
   font-size: 300%;
   color: #ffffff;
@@ -143,6 +158,13 @@ body {
 
 .webicon:hover {
   opacity: 0.8;
+  cursor: pointer;
+}
+
+.websubtitle:hover {
+  opacity: 1.5;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 #webOne {
@@ -172,5 +194,138 @@ body {
 .websubtitle {
   text-align: center;
   font-size: 150%;
+}
+
+.editbar {
+  background-color: #444444;
+  margin: auto;
+  margin-top: 15%;
+  width: 60%;
+  height: 10px;
+  border-radius: 25em;
+}
+
+.editbar:hover {
+  opacity: 0.5;
+}
+
+#weatherCard, #note, #emoBtn {
+  margin-top: 1rem;
+  border-radius: 20px;
+}
+
+#weatherCard, #search {
+  width: 80%;
+}
+
+#weatherCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 5rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  background-color: #9BD1F5;
+}
+
+#weatherCard #weatherIcon {
+  margin-right: 1rem;
+}
+
+#weatherCard #weatherIcon a {
+  position: relative;
+  bottom: 8px;
+  font-size: 3rem;
+}
+
+#weatherCard #weatherInfo {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #363636;
+}
+
+#weatherCard #weatherInfo h4 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+#weatherCard #weatherInfo span {
+  margin-left: 1.5rem;
+}
+
+#weatherCard #weatherInfo span::after {
+  content: "℃";
+}
+
+#search {
+  margin-top: 0.9rem;
+  position: relative;
+  width: 80%;
+}
+
+#search input {
+  width: 100%;
+  height: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 2.5rem;
+  border-radius: 20px;
+  border: none;
+  outline: none !important;
+}
+
+#search #searchSubmit {
+  width: 2rem;
+  position: absolute;
+  right: 0.8rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  outline: none !important;
+}
+
+#noteSec {
+  position: relative;
+}
+
+#noteSec #penIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+}
+
+#note {
+  width: 100%;
+  height: 80%;
+  padding-left: 1rem;
+  padding-right: 4rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  resize: none;
+  outline: none !important;
+  border: none;
+  background-color: #F8DE7E;
+  -webkit-box-shadow: 1px 1px 5px gray;
+          box-shadow: 1px 1px 5px gray;
+}
+
+#emoBtn {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none !important;
+}
+
+#emoBtn h1 {
+  text-shadow: 1px 1px 5px gray;
 }
 /*# sourceMappingURL=index.css.map */
