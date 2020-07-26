@@ -95,41 +95,6 @@ body {
   background-color: #93d5dc;
 }
 
-
-.newssection {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#newsPart {
-  position: relative;
-  width: 90%;
-  height: 50%;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 25em;
-  padding-left: 2em;
-  padding-right: 0;
-}
-
-#newsText {
-  font-size: 1.8em;
-  color: #444444;
-  width: 95%;
-  height: 5em;
-  line-height: 5em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-#newsText:hover {
-  color: #363636;
-
 #weatherCard, #note, #emoBtn {
   margin-top: 1rem;
   border-radius: 20px;
@@ -250,8 +215,65 @@ body {
   text-shadow: 1px 1px 5px gray;
 }
 
+.center {
+  position: auto;
+  padding: 0%;
+  margin: 1%;
+  border: 10% none #f8e8c1;
+  border-radius: 10em;
+}
 
+li {
+  background: #f7f7f7d5;
+  color: #797979;
+  font-size: 20px;
+  list-style-type: none;
+  padding: 5%;
+  margin: 0%;
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
+  word-wrap: break-word;
+}
 
+li:hover {
+  color: #fff;
+  background: #d1d1d1;
+}
+
+.newssection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#newsPart {
+  position: relative;
+  width: 90%;
+  height: 50%;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 25em;
+  padding-left: 2em;
+  padding-right: 0;
+}
+
+#newsText {
+  font-size: 1.8em;
+  color: #444444;
+  width: 95%;
+  height: 5em;
+  line-height: 5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#newsText:hover {
+  color: #363636;
+}
 
 #newsPart:hover {
   background-color: #e7e5e5;
