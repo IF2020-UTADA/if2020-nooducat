@@ -79,118 +79,12 @@ body {
 #mainColSec #headRowSec #emotionSec {
   width: 10%;
 }
-/*------------------------------------------------------Tips Section Start----------------------------------------*/
+
 #mainColSec #tipsRowSec {
   height: 55%;
   background-color: #d0dfe6;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
 }
 
-#mainColSec #tipsRowSec .activity{
-  height: 78%;
-  width: 38%;
-  background-color: #98FB98;
-  margin-top: auto;
-  margin-bottom: auto;
-  border-radius: 15px;
-  box-shadow: 0px 7px 9px -2px rgba(67,67,67,0.3);
-  position: relative;
-}
-
-
-#mainColSec #tipsRowSec .activity #nameText{
-  padding-top: 1em;
-  padding-left: 0.5em;
-}
-
-#mainColSec #tipsRowSec .activity #activityImage{
-/*  padding-right: 0.5em;
-  float: right;*/
-  width: 60%;
-  height: auto;
-  position: absolute;
-  right: 0.5em;
-  bottom: 2em;
-}
-
-
-#mainColSec #tipsRowSec .other{
-  height: 78%;
-  width: 23%;
-/*  background-color: orange;*/
-  margin-top: auto;
-  margin-bottom: auto;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0px 7px 9px -2px rgba(67,67,67,0.3);
-}
-
-#mainColSec #tipsRowSec .other .otherImg{
-  width:auto;
-  height:100%;
-  transition: .3s;
-}
-
-#mainColSec #tipsRowSec .other :not(img){
-  z-index: 1;
-  position: absolute;
-  opacity: 0;
-  transition: .3s;
-}
-
-#mainColSec #tipsRowSec .other:hover img{
-  filter: blur(2px) brightness(60%);
-}
-
-
-#mainColSec #tipsRowSec .other:hover :not(img){
-  opacity: 1;
-}
-
-#mainColSec #tipsRowSec #food h4{
-  padding-top: 2.3%;
-  padding-left: 1.3%;
-  color: #fff;
-}
-
-#mainColSec #tipsRowSec #food h2{
-  padding-top: 12%;
-  padding-left: 1.3%;
-  color: #fff;
-}
-
-#mainColSec #tipsRowSec #food h5{
-  padding-top: 15%;
-  padding-left: 1.3%;
-  color: #fff;
-}
-
-
-#mainColSec #tipsRowSec #localLives h4{
-  padding-top: 2.3%;
-  padding-left: 1.3%;
-  color: #fff;
-}
-
-#mainColSec #tipsRowSec #localLives #firstline{
-  padding-top: 10%;
-  padding-left: 1.3%;
-  color: #fff;
-}
-#mainColSec #tipsRowSec #localLives #secondline{
-  padding-top: 12.5%;
-  padding-left: 1.3%;
-  color: #fff;
-}
-#mainColSec #tipsRowSec #localLives #thirdline{
-  padding-top: 15%;
-  padding-left: 1.3%;
-  color: #fff;
-}
-
-/*------------------------------------------------------Tips Section Ends----------------------------------------*/
 #mainColSec #newsRowSec {
   height: 20%;
   background-color: #f8e8c1;
@@ -319,6 +213,119 @@ body {
 
 #emoBtn h1 {
   text-shadow: 1px 1px 5px gray;
+}
+
+#tipsRowSec {
+  height: 55%;
+  background-color: #d0dfe6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#tipsRowSec .activity {
+  height: 78%;
+  width: 38%;
+  background-color: #98FB98;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 7px 9px -2px rgba(67, 67, 67, 0.3);
+          box-shadow: 0px 7px 9px -2px rgba(67, 67, 67, 0.3);
+  position: relative;
+}
+
+#tipsRowSec .activity #nameText {
+  padding-top: 1em;
+  padding-left: 0.5em;
+}
+
+#tipsRowSec .activity #activityImage {
+  width: 60%;
+  height: auto;
+  position: absolute;
+  right: 0.5em;
+  bottom: 2em;
+}
+
+#tipsRowSec .other {
+  height: 78%;
+  width: 23%;
+  margin-top: auto;
+  margin-bottom: auto;
+  overflow: hidden;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 7px 9px -2px rgba(67, 67, 67, 0.3);
+          box-shadow: 0px 7px 9px -2px rgba(67, 67, 67, 0.3);
+}
+
+#tipsRowSec .other .otherImg {
+  width: auto;
+  height: 100%;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#tipsRowSec .other :not(img) {
+  z-index: 1;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#tipsRowSec .other:hover img {
+  -webkit-filter: blur(2px) brightness(60%);
+          filter: blur(2px) brightness(60%);
+}
+
+#tipsRowSec .other:hover :not(img) {
+  opacity: 1;
+}
+
+#tipsRowSec #food .foodTexts {
+  padding-left: 1.3%;
+  color: #fff;
+}
+
+#tipsRowSec #food h4 {
+  padding-top: 2.3%;
+}
+
+#tipsRowSec #food h2 {
+  padding-top: 12%;
+}
+
+#tipsRowSec #food h5 {
+  padding-top: 15%;
+}
+
+#tipsRowSec #localLives .localTexts {
+  padding-left: 1.3%;
+  color: #fff;
+}
+
+#tipsRowSec #localLives h4 {
+  padding-top: 2.3%;
+}
+
+#tipsRowSec #localLives #localFirst {
+  padding-top: 10%;
+}
+
+#tipsRowSec #localLives #localSecond {
+  padding-top: 12.5%;
+}
+
+#tipsRowSec #localLives #localThird {
+  padding-top: 15%;
 }
 
 .center {
