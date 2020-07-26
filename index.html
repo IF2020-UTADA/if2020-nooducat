@@ -12,13 +12,36 @@
 
 </head>
 
-<body>
+<body class="light">
     <div class="section" id="webColSec">
         常用网址
     </div>
     <div class="section" id="mainColSec">
         <div class="subsection" id="headRowSec">
-            天气
+            <div id="weatherAndSearchSec">
+              <div class="mx-auto" id="weatherCard">
+                <div class="" id="weatherIcon">
+                  <a href="#">🌧</a>
+                </div>
+                <div class="my-auto" id="weatherInfo">
+                    <h4 id="weatherType"> Rain <span>25</span></h4>
+                    <h6>Toronto, ON</h6>
+                </div>
+              </div>
+              <form class="mx-auto" id="search" action="http://www.google.com/search" method="get" >
+                <input type="text" name="q" value="">
+                <button id="searchSubmit" value="Search" type="submit">🔍</button>
+              </form>
+            </div>
+            <div id="noteSec">
+              <textarea name="note" id="note" rows="4"></textarea>
+              <a id="penIcon">✒</a>
+            </div>
+            <div id="emotionSec">
+              <button class="mx-auto" id="emoBtn">
+                <h1>😀</h1>
+              </button>
+            </div>
         </div>
         <div class="subsection" id="tipsRowSec">
 
