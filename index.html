@@ -14,18 +14,9 @@
 <body class="light">
 
   <div class="section" id="webColSec">
-    <div class="web-icon mx-auto">G</div>
-    <div class="web-subtitle">Google</div>
-    <div class="web-icon mx-auto">A</div>
-    <div class="web-subtitle">Acorn</div>
-    <div class="web-icon mx-auto">Q</div>
-    <div class="web-subtitle">Quercus</div>
-    <div class="web-icon mx-auto">O</div>
-    <div class="web-subtitle">Outlook</div>
-    <div class="web-icon mx-auto">Y</div>
-    <div class="web-subtitle">Youtube</div>
-    <div class="web-icon mx-auto">G</div>
-    <div class="web-subtitle">Github</div>
+    <div id="webContainer">
+      <!-- leave space for insert web links -->
+    </div>
     <button class="mx-auto">
       <div class="edit-bar"></div>
     </button>
@@ -49,7 +40,7 @@
         </form>
       </div>
       <div id="noteSec">
-        <textarea name="note" id="note" rows="4"></textarea>
+        <textarea name="note" id="note" rows="4" onchange="updateNote()"></textarea>
         <a id="penIcon">✒</a>
       </div>
       <div id="emotionSec">
@@ -58,6 +49,8 @@
         </button>
       </div>
     </div>
+
+
     <div class="subsection" id="tipsRowSec">
       <div class="activity">
         <div class="light-accent-text">
@@ -210,9 +203,23 @@
     </div>
   </script>
 
+  <script id="webLinkTemplate" type="text/x-handlebars-template">
+    <div class="web">
+      <a href="{{ link }}"><div class="web-icon mx-auto" style="background-color: {{ bg }};">{{ icon }}</div></a>
+      <a class="web-subtitle">{{ name }}</a>
+    </div>
+  </script>
+
+  <script id="suggestionTemplate" type="text/x-handlebars-template">
+    <div class="card sugg-card">
+      <img class="sugg-img" src="./images/LS10.jpg" alt="">
+      <a href="#"><h3 class="sug-title">Leory Sane Signed for Bayern</h3></a>
+    </div>
+  </script>
+
   <!-- My js -->
-  <script src="./script/news.js"></script>
-  <script src="./script/webs.js"></script>
+  <script src="./script/index.js"></script>
+  <!-- <script src="./script/webs.js"></script> -->
 </body>
 
 </html>
