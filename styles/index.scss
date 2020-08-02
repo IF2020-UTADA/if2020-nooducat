@@ -56,6 +56,10 @@ $dark-paper: #595959;
     color: $light-bg;
 }
 
+%light-card-shadow {
+    box-shadow: 1px 1px 5px gray;
+}
+
 
 html,
 body {
@@ -147,6 +151,7 @@ body {
         font-size: 1.8rem;
         color: $light-accent;
         box-shadow: 0 2px 5px 0 #00000020;
+        
         border-radius: 10px;
         margin-top: 20px;
         margin-bottom: 1px;
@@ -336,7 +341,8 @@ body {
     outline: none !important;
     border: none;
     background-color: $light-paper;
-    box-shadow: 1px 1px 5px gray;
+    // box-shadow: 1px 1px 5px gray;
+    @extend %light-card-shadow;
 }
 
 #note:focus {

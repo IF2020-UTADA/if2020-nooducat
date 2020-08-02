@@ -35,6 +35,11 @@
   color: #f3f3f3;
 }
 
+#note {
+  -webkit-box-shadow: 1px 1px 5px gray;
+          box-shadow: 1px 1px 5px gray;
+}
+
 html,
 body {
   height: 100%;
@@ -301,8 +306,6 @@ body {
   outline: none !important;
   border: none;
   background-color: #F8DE7E;
-  -webkit-box-shadow: 1px 1px 5px gray;
-          box-shadow: 1px 1px 5px gray;
 }
 
 #note:focus {
