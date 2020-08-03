@@ -89,3 +89,17 @@ var webLinks = [
         bg: "#1C1C1C",
     }, 
 ]
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=Toronto,ca&appid=15a9adb8e010731c682b06cf232df34c&units=metric')
+    .then(response => response.json())
+    .then(data => {
+        const temp = data.main.temp;
+        const icon = 'images/' + data.weather[0].icon + '@2x.png';
+        const type = data.weather[0].main;
+        document.querySelector('#weatherTemp').innerHTML = temp;
+        document.querySelector('#weatherIcon').src = `images/${data.weather[0].icon}@2x.png`;
+        document.querySelector('#weatherType').innerHTML = type;
+    });
+});

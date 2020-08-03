@@ -222,9 +222,10 @@ body {
 
 #weatherCard #weatherIcon {
   margin-right: 1rem;
+  margin-left: -1rem;
 }
 
-#weatherCard #weatherIcon a {
+#weatherCard #weatherIcon icon {
   position: relative;
   bottom: 8px;
   font-size: 3rem;
@@ -243,11 +244,11 @@ body {
   font-weight: bold;
 }
 
-#weatherCard #weatherInfo span {
-  margin-left: auto;
+#weatherCard #weatherInfo #weatherTemp {
+  margin-left: 8px;
 }
 
-#weatherCard #weatherInfo span::after {
+#weatherCard #weatherInfo #weatherTemp::after {
   content: "℃";
 }
 
