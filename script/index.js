@@ -2,6 +2,10 @@ const web = Handlebars.compile(
     document.querySelector('#webLinkTemplate').innerHTML
 );
 
+const suggestion = Handlebars.compile(
+    document.querySelector('#suggestionTemplate').innerHTML
+);
+
 
 document.addEventListener("DOMContentLoaded", () => {
     // get local webs
@@ -25,8 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // get suggestion
 
-
-    
     // add web links
     for (let w of webLinks) {
         document.querySelector('#webContainer').innerHTML += web({
@@ -37,9 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // add suggestion
+    for (let i = 0; i < 4; i++){
+        document.querySelector('#suggestColSec').innerHTML += suggestion({
+
+        });
+    }
     // set mode
 })
-
 
 
 function updateNote(){

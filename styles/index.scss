@@ -510,3 +510,49 @@ body {
 }
 
 ////////////////////////End News Section//////////////////
+
+
+
+///////////////////// Suggestion Section /////////////////////////////
+
+#suggestColSec{
+    
+    overflow-y: scroll;
+    overflow-x: hidden;
+  
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+
+    h3{
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .sugg-card, .sugg-img{
+        border-radius: 15px;
+        box-shadow: 2px 2px 5px #00000020;
+    }
+
+    .sugg-card{
+        width: 16rem; 
+        height: 20rem;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .sugg-img{
+        margin-bottom: 1rem;
+    }
+
+    .sugg-title{
+        color: $dark-accent;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-left: auto;
+        margin-right: auto;
+        width:12rem;
+    }
+
+}
+
+//////////////////////// End Suggestion Section //////////////////
