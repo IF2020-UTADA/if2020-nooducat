@@ -38,6 +38,11 @@ $dark-paper: #595959;
     color: $dark-bg;
 }
 
+.light-paper {
+    background-color: $light-paper;
+    color: $dark-bg;
+}
+
 .dark {
     background-color: $dark-bg;
     color: $light-accent;
@@ -56,10 +61,18 @@ $dark-paper: #595959;
     color: $light-bg;
 }
 
-%light-card-shadow {
-    box-shadow: 1px 1px 5px gray;
+.dark-paper {
+    background-color: $dark-paper;
+    color: $light-bg;
 }
 
+%shadow {
+    box-shadow: 1px 1px 5px #00000040;
+}
+
+%card-shadow {
+    box-shadow: 2px 2px 5px #00000040;
+}
 
 html,
 body {
@@ -150,7 +163,8 @@ body {
         // background-color: $light-accent;
         font-size: 1.8rem;
         color: $light-accent;
-        box-shadow: 0 2px 5px 0 #00000020;
+        // box-shadow: 0 2px 5px 0 #00000020;
+        @extend %shadow;
         
         border-radius: 10px;
         margin-top: 20px;
@@ -163,7 +177,7 @@ body {
 
     .web-subtitle {
         text-align: center;
-        font-size: 1rem;
+        font-size: .8rem;
         margin-top: 5px;
     }
 
@@ -191,11 +205,6 @@ body {
         outline:none;
     }
 
-    
-    // .web-subtitle:hover {
-        
-    // }
-
 
     button {
         width: 100%;
@@ -210,7 +219,7 @@ body {
         width: 3.5rem;
         height: 5px;
         border-radius: 50px;
-        background-image: linear-gradient(to right, lightgreen, aquamarine);
+        background-color: lightgray;
     }
 
     .edit-bar:hover {
@@ -268,6 +277,7 @@ body {
 
         #weatherTemp {
             margin-left: 8px;
+            color: #3f3f3f;
         }
 
         #weatherTemp::after {
@@ -340,13 +350,12 @@ body {
     resize: none;
     outline: none !important;
     border: none;
-    background-color: $light-paper;
     // box-shadow: 1px 1px 5px gray;
-    @extend %light-card-shadow;
+    @extend %shadow;
 }
 
 #note:focus {
-    box-shadow: 1px 1px 10px gray;
+    box-shadow: 1px 1px 10px #00000040;
     transition-duration: .3s;
 }
 
@@ -361,7 +370,7 @@ body {
     outline: none !important;
 
     h1 {
-        text-shadow: 1px 1px 5px gray;
+        text-shadow: 1px 1px 5px #00000040;
     }
 }
 
@@ -381,7 +390,7 @@ body {
         height: 82%;
         position: relative;
         border-radius: 15px;
-        box-shadow: 2px 2px 5px rgba(67, 67, 67, .3);
+       @extend %card-shadow;
     }
 
     .activity {
@@ -488,14 +497,13 @@ body {
         padding-left: 1.2rem;
         padding-right: 2rem;
 
-        box-shadow: 2px 2px 5px #00000040;
+        @extend %card-shadow;
         border-radius: 50px;
         
     }
     
     a {
         font-size: 1.1rem;
-        color: $dark-accent;
         width: 95%;
         height: 5em;
         line-height: 5em;
@@ -516,41 +524,43 @@ body {
 ///////////////////// Suggestion Section /////////////////////////////
 
 #suggestColSec{
-    
-    overflow-y: scroll;
-    overflow-x: hidden;
-  
+    // scroll-behavior: smooth;
     padding-top: 1rem;
     padding-bottom: 2rem;
 
+    overflow-y: auto;
+    overflow-x: hidden;
+
     h3{
+        margin-left: 4rem;
+        margin-bottom: .8rem;
         font-size: 1rem;
         font-weight: bold;
     }
 
     .sugg-card, .sugg-img{
-        border-radius: 15px;
-        box-shadow: 2px 2px 5px #00000020;
+        border-radius: 20px;
+        @extend %card-shadow;
     }
 
     .sugg-card{
         width: 16rem; 
-        height: 20rem;
-        padding: 1rem;
+        height: auto;
+        padding: .5rem;
         margin-bottom: 1.5rem;
+        border: none;
     }
 
     .sugg-img{
-        margin-bottom: 1rem;
+        margin-bottom: .5rem;
     }
 
     .sugg-title{
-        color: $dark-accent;
-        font-size: 1.2rem;
-        font-weight: bold;
+        font-size: 1.1rem;
+        font-weight: 600;
         margin-left: auto;
         margin-right: auto;
-        width:12rem;
+        width: 12rem;
     }
 
 }

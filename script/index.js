@@ -14,9 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // get time
+    const time = new Date();
 
     // get weather
-
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=Toronto,ca&appid=15a9adb8e010731c682b06cf232df34c&units=metric')
+    .then(response => response.json())
+    .then(data => {
+        const temp = data.main.temp;
+        const icon = 'images/' + data.weather[0].icon + '@2x.png';
+        const type = data.weather[0].main;
+        document.querySelector('#weatherTemp').innerHTML = temp;
+        document.querySelector('#weatherIcon').src = `images/${data.weather[0].icon}@2x.png`;
+        document.querySelector('#weatherType').innerHTML = type;
+    });
 
     // get local note
     if(localStorage['note']){
@@ -46,14 +56,49 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     // set mode
+    if (time.getHours() >= 20 || time.getHours() <= 7) {
+        setDarkMode();
+    }
 })
 
 
-function updateNote(){
+function updateNote() {
     localStorage['note'] = document.querySelector('#note').value;
 }
 
 
+function setDarkMode() {
+    document.querySelectorAll('.light').forEach(i => {
+        i.classList.add('dark');
+        i.classList.remove('light');
+    });
+
+    document.querySelectorAll('.light-accent').forEach(i => {
+        i.classList.add('dark-accent');
+        i.classList.remove('light-accent');
+    });
+
+    document.querySelectorAll('.light-text').forEach(i => {
+        i.classList.add('dark-text');
+        i.classList.remove('light-text');
+    });
+
+    document.querySelectorAll('.light-accent-text').forEach(i => {
+        i.classList.add('dark-accent-text');
+        i.classList.remove('light-accent-text');
+    });
+
+    document.querySelectorAll('.light-paper').forEach(i => {
+        i.classList.add('dark-paper');
+        i.classList.remove('light-paper');
+    });
+
+    document.querySelector('#weatherCard').style.filter = "brightness(85%)";
+
+    document.querySelectorAll('.web-icon').forEach(i => {
+        i.style.filter = "brightness(80%)";
+    });
+}
 
 
 
@@ -89,17 +134,3 @@ var webLinks = [
         bg: "#1C1C1C",
     }, 
 ]
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=Toronto,ca&appid=15a9adb8e010731c682b06cf232df34c&units=metric')
-    .then(response => response.json())
-    .then(data => {
-        const temp = data.main.temp;
-        const icon = 'images/' + data.weather[0].icon + '@2x.png';
-        const type = data.weather[0].main;
-        document.querySelector('#weatherTemp').innerHTML = temp;
-        document.querySelector('#weatherIcon').src = `images/${data.weather[0].icon}@2x.png`;
-        document.querySelector('#weatherType').innerHTML = type;
-    });
-});

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quack and Meow!</title>
+  <title>New Tab</title>
   <!-- Styles -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
@@ -35,12 +35,12 @@
           </div>
         </div>
         <form class="mx-auto" id="search" action="http://www.google.com/search" method="get">
-          <input type="text" name="q" value="" />
+          <input class="light-accent" type="text" name="q" value="" />
           <button id="searchSubmit" value="Search" type="submit">🔍</button>
         </form>
       </div>
       <div id="noteSec">
-        <textarea name="note" id="note" rows="4" onchange="updateNote()"></textarea>
+        <textarea class="light-paper" name="note" id="note" rows="4" onchange="updateNote()"></textarea>
         <a id="penIcon">✒</a>
       </div>
       <div id="emotionSec">
@@ -76,7 +76,7 @@
     <div class="subsection" id="newsRowSec">
       <div class="news-section light" id="newsContainer">
         <icon>💥</icon>
-        <a href="https://globalnews.ca/news/7217388/coronavirus-ontario-cases-july-25-covid19/">
+        <a class="light-text" href="https://globalnews.ca/news/7217388/coronavirus-ontario-cases-july-25-covid19/">
           Ontario government reports 138 new coronavirus cases, 1 new death;
           38,543 total cases
         </a>
@@ -85,7 +85,7 @@
   </div>
 
   <div class="section" id="suggestColSec">
-    <h3>Suggest to Read:</h3>
+    <h3 class="light-accent-text">Suggest to Read:</h3>
   </div>
 
   <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -120,16 +120,18 @@
 
   <script id="webLinkTemplate" type="text/x-handlebars-template">
     <div class="web">
-      <a href="{{ link }}"><div class="web-icon mx-auto" style="background-color: {{ bg }};">{{ icon }}</div></a>
+      <a href="{{ link }}">
+        <div class="web-icon mx-auto" style="background-color: {{ bg }};">{{ icon }}</div>
+      </a>
       <a class="web-subtitle">{{ name }}</a>
     </div>
   </script>
 
   <script id="suggestionTemplate" type="text/x-handlebars-template">
-    <div class="card sugg-card mx-auto">
+    <div class="card sugg-card light-accent mx-auto">
       <img class="sugg-img" src="./images/LS10.jpg" alt="">
       <a href="#">
-        <h3 class="sugg-title">Leory Sane Signed for Bayern</h3>
+        <h4 class="sugg-title light-accent-text">Leory Sane Signed for Bayern asdqw</h4>
       </a>
     </div>
   </script>
