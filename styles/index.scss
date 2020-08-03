@@ -93,11 +93,6 @@ body {
     overflow: hidden;
 }
 
-.section,
-.subsection {
-    // border: 1px solid red;s
-}
-
 .section {
     height: 100%;
 }
@@ -258,10 +253,9 @@ body {
 
     #weatherIcon {
         margin-right: 1rem;
-        margin-left: -1rem;
-        icon {
+        a {
             position: relative;
-            bottom: 8px;
+            bottom: 5px;
             font-size: 3rem;
         }
     }
@@ -269,15 +263,17 @@ body {
     #weatherInfo {
         flex-direction: column;
         color: $dark-bg;
+        
 
         h4 {
+            margin-top: .5rem;
             font-size: 1.3rem;
             font-weight: bold;
         }
 
         #weatherTemp {
-            margin-left: 8px;
-            color: #3f3f3f;
+            margin-left: 20px;
+            color: #535353;
         }
 
         #weatherTemp::after {
@@ -563,6 +559,10 @@ body {
         width: 12rem;
     }
 
+}
+
+#suggestColSec::-webkit-scrollbar {
+    display:none;
 }
 
 //////////////////////// End Suggestion Section //////////////////

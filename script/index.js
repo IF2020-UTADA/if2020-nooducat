@@ -9,7 +9,7 @@ const suggestion = Handlebars.compile(
 
 document.addEventListener("DOMContentLoaded", () => {
     // get local webs
-    if (localStorage["webLinks"]){
+    if (localStorage["webLinks"]) {
         webLinks = localStorage["webLinks"];
     }
 
@@ -17,19 +17,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const time = new Date();
 
     // get weather
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=Toronto,ca&appid=15a9adb8e010731c682b06cf232df34c&units=metric')
-    .then(response => response.json())
-    .then(data => {
-        const temp = data.main.temp;
-        const icon = 'images/' + data.weather[0].icon + '@2x.png';
-        const type = data.weather[0].main;
-        document.querySelector('#weatherTemp').innerHTML = temp;
-        document.querySelector('#weatherIcon').src = `images/${data.weather[0].icon}@2x.png`;
-        document.querySelector('#weatherType').innerHTML = type;
-    });
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=Toronto&appid=15a9adb8e010731c682b06cf232df34c&units=metric')
+        .then(response => response.json())
+        .then(data => {
+            let type = data.weather[0].main;
+            if (type === "Thunderstorm") type = "Thunder";
+            let temp = data.main.temp;
+            let icon, color;
+            if (weatherList[type]) {
+                icon = weatherList[type].icon;
+                color = weatherList[type].color;
+            } else {
+                icon = "🏙";
+                color = "#DFDFDF";
+            }
+
+
+            document.querySelector('#weatherTemp').innerHTML = temp;
+            document.querySelector('#weatherIconA').innerHTML = icon;
+            document.querySelector('#weatherType').innerHTML = type;
+            document.querySelector('#weatherCard').style.backgroundColor = color;
+        });
 
     // get local note
-    if(localStorage['note']){
+    if (localStorage['note']) {
         document.querySelector('#note').value = localStorage['note'];
     }
 
@@ -50,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // add suggestion
-    for (let i = 0; i < 4; i++){
+    for (let i = 0; i < 4; i++) {
         document.querySelector('#suggestColSec').innerHTML += suggestion({
 
         });
@@ -107,30 +118,62 @@ var webLinks = [
         name: "Google",
         link: "https://www.google.com",
         bg: "#FF5C5C",
-    }, 
+    },
     {
         name: "Acorn",
         link: "https://acorn.utoronto.ca/",
         bg: "#5A63DB",
-    }, 
+    },
     {
         name: "Quercus",
         link: "https://q.utoronto.ca/",
         bg: "#FF5B81",
-    }, 
+    },
     {
         name: "Outlook",
         link: "https://www.outlook.com",
         bg: "#58B1FF",
-    }, 
+    },
     {
         name: "Youtube",
         link: "https://www.youtube.com/",
         bg: "#FF2525",
-    }, 
+    },
     {
         name: "Github",
         link: "https://github.com/",
         bg: "#1C1C1C",
-    }, 
+    },
 ]
+
+
+var weatherList = {
+    "Clear": {
+        icon: "🌞",
+        color: "#F2FFA1",
+    },
+    "Thunder": {
+        icon: "⛈",
+        color: "#D8BAFE",
+    },
+    "Drizzle": {
+        icon: "☔",
+        color: "#CCE0EE",
+    },
+    "Rain": {
+        icon: "🌧",
+        color: "#9BD1F5",
+    },
+    "Snow": {
+        icon: "🌨",
+        color: "#FFFFFF",
+    },
+    "Clouds": {
+        icon: "☁",
+        color: "#DADADA",
+    },
+    "Fog": {
+        icon: "🌫",
+        color: "#AFEFDE",
+    },
+}
