@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             let type = data.weather[0].main;
             if (type === "Thunderstorm") type = "Thunder";
-            let temp = data.main.temp;
+            let temp = parseInt(data.main.temp);
             let icon, color;
             if (weatherList[type]) {
                 icon = weatherList[type].icon;
@@ -44,9 +44,34 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('#note').value = localStorage['note'];
     }
 
-    // get news
+    // get activities
+    let h = time.getHours();
+    if (h >= 24 || h <= 4) {
+        // night
+        getActivity('night');
+    } else if (h >= 5 && h <= 7) {
+        // wakeup
+        getActivity('wakeup');
+    } else if (h <= 11) {
+        // morning (random)
+        getActivity('morning');
+    } else if (h === 12) {
+        // lunch
+        getActivity('lunch');
+    } else if (h <= 17) {
+        // afternoon (random)
+        getActivity('afternoon');
+    } else if (h <= 19) {
+        // dinner
+        getActivity('dinner');
+    } else if (h <= 23) {
+        // evening (random)
+        getActivity('evening');
+    }
 
     // get tips
+
+    // get news
 
     // get suggestion
 
@@ -77,6 +102,19 @@ function updateNote() {
     localStorage['note'] = document.querySelector('#note').value;
 }
 
+function getActivity(type) {
+    if (type !== "morning" && type !== "afternoon" && type !== "evening"){
+        document.querySelector('#activityTitle').textContent = activities[type].text;
+        document.querySelector('#activityImage').src = activities[type].image;
+        document.querySelector('.activity').style.backgroundColor = activities[type].color;
+    } else {
+        // random
+        const rand = Math.floor(Math.random() * activities[type].length);
+        document.querySelector('#activityTitle').textContent = activities[type][rand].text;
+        document.querySelector('#activityImage').src = activities[type][rand].image;
+        document.querySelector('.activity').style.backgroundColor = activities[type][rand].color;
+    }
+}
 
 function setDarkMode() {
     document.querySelectorAll('.light').forEach(i => {
@@ -176,4 +214,84 @@ var weatherList = {
         icon: "🌫",
         color: "#AFEFDE",
     },
+}
+
+
+var activities = {
+    wakeup: {
+        text: "Good morning 🌄",
+        image: "./images/morning.svg",
+        color: "#B9CAFC",
+    },
+    breakfast: {
+        text: "Morning energy! 🍳",
+        image: "./images/breakfast.svg",
+        color: "#FFE8C5",
+    },
+    morning: [
+        {
+            text: "Morning coffee ☕",
+            image: "./images/coffee.svg",
+            color: "#BBB2A7",
+        },
+        {
+            text: "Stretch yourself 💪",
+            image: "./images/stretch.svg",
+            color: "#B9E9CA",
+        },
+        {
+            text: "Talk to friends 😆",
+            image: "./images/talk.svg",
+            color: "#B6DEF2",
+        },
+    ],
+    lunch: {
+        text: "Lunch break 🍜",
+        image: "./images/lunch.svg",
+        color: "#E6E9B9",
+    },
+    afternoon: [
+        {
+            text: "Rest your eyes 🥽",
+            image: "./images/eyes.svg",
+            color: "#BFE9B9",
+        },
+        {
+            text: "Go for a walk 🚶‍♀️",
+            image: "./images/walk.svg",
+            color: "#A3E3CE",
+        },
+    ],
+    dinner: {
+        text: "Dinner time 🍽",
+        image: "./images/dinner.svg",
+        color: "#FFC8C1",
+    },
+    evening: [
+        {
+            text: "Read a book 📔",
+            image: "./images/read.svg",
+            color: "#5B4404",
+        },
+        {
+            text: "Watch a movie? 🍿",
+            image: "./images/movie.svg",
+            color: "#4C415A",
+        },
+        {
+            text: "Do some sport 🛹",
+            image: "./images/sport.svg",
+            color: "#BB0000",
+        },
+        {
+            text: "A hot bath 🛀",
+            image: "./images/bath.svg",
+            color: "#324C6D",
+        },
+    ],
+    night: {
+        text: "Good night 🌉",
+        image: "./images/sleep.svg",
+        color: "#001939",
+    }
 }

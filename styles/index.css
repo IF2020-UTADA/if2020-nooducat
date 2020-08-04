@@ -154,7 +154,7 @@ body {
   margin-top: 5px;
 }
 
-#webColSec .web, #webColSec .web:hover {
+#webColSec .web {
   -webkit-transition-duration: .2s;
           transition-duration: .2s;
 }
@@ -195,12 +195,12 @@ body {
   height: 5px;
   border-radius: 50px;
   background-color: lightgray;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
 }
 
 #webColSec .edit-bar:hover {
   opacity: .5;
-  background-image: -webkit-gradient(linear, left top, right top, from(aqua), to(deepskyblue));
-  background-image: linear-gradient(to right, aqua, deepskyblue);
 }
 
 #weatherCard,
@@ -375,7 +375,7 @@ body {
   width: auto;
   height: 60%;
   position: absolute;
-  right: 1em;
+  right: 2em;
   bottom: 2em;
 }
 

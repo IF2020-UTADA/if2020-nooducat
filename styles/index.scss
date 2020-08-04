@@ -176,7 +176,7 @@ body {
         margin-top: 5px;
     }
 
-    .web, .web:hover {
+    .web {
         transition-duration: .2s;
     }
 
@@ -215,11 +215,11 @@ body {
         height: 5px;
         border-radius: 50px;
         background-color: lightgray;
+        transition-duration: .3s;
     }
 
     .edit-bar:hover {
         opacity: .5;
-        background-image: linear-gradient(to right, aqua, deepskyblue);
     }
 }
 
@@ -403,7 +403,7 @@ body {
             width: auto;
             height: 60%;
             position: absolute;
-            right: 1em;
+            right: 2em;
             bottom: 2em;
         }
     }
