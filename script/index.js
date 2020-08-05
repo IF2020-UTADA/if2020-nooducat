@@ -105,6 +105,49 @@ function updateNote() {
     localStorage['note'] = document.querySelector('#note').value;
 }
 
+
+function setEmotion(emo){
+    console.log(emo);
+    if(!localStorage['emoList']){
+        localStorage['emoList'] = "";
+    }
+    localStorage['emoList'] = emo + localStorage['emoList'];
+    if(localStorage['emoList'].length >= 50){
+        localStorage['emoList'] = localStorage['emoList'].substring(0, 50);
+    } 
+    console.log(localStorage['emoList']);
+}
+
+// function setEmotion(emo){
+//     const t = new Date();
+//     const year = t.getFullYear();
+//     const month = t.getMonth() + 1;
+//     const date = t.getDate();
+//     const day = t.getDay();
+//     updateEmotion(year, month, date, day, emo);
+// }
+
+
+// function updateEmotion(year, month, date, day, emo){
+//     if (!localStorage['emoCalendar']){
+//         localStorage['emoCalendar'] = {}
+//     }
+//     if (!localStorage['emoCalendar'][year]){
+//         localStorage['emoCalendar'][year] = {};
+//     }
+//     if (!localStorage['emoCalendar'][year][month]){
+//         localStorage['emoCalendar'][year][month] = {};
+//     }
+//     if (!localStorage['emoCalendar'][year][month][date]){
+//         localStorage['emoCalendar'][year][month][date] = {};
+//     }
+
+//     localStorage['emoCalendar'][year][month][date]['day'] = day;
+//     localStorage['emoCalendar'][year][month][date]['emo'] = emo;
+    
+// }
+
+
 function getActivity(type) {
     if (type !== "morning" && type !== "afternoon" && type !== "evening"){
         document.querySelector('#activityTitle').textContent = activities[type].text;
@@ -128,6 +171,11 @@ function setDarkMode() {
     document.querySelectorAll('.light-accent').forEach(i => {
         i.classList.add('dark-accent');
         i.classList.remove('light-accent');
+    });
+
+    document.querySelectorAll('.light-accent-gradient').forEach(i => {
+        i.classList.add('dark-accent-gradient');
+        i.classList.remove('light-accent-gradient');
     });
 
     document.querySelectorAll('.light-text').forEach(i => {
@@ -298,3 +346,4 @@ var activities = {
         color: "#001939",
     }
 }
+

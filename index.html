@@ -44,9 +44,20 @@
         <a id="penIcon">✒</a>
       </div>
       <div id="emotionSec">
-        <button class="mx-auto" id="emoBtn">
+        <!-- <button class="mx-auto" id="emoBtn">
           <h1>😀</h1>
-        </button>
+        </button> -->
+        <select name="emotion" id="emoBtn" onchange="console.log('cli')">
+          <option value="😄" class="light-accent" onclick="console.log('clicked');">😄</option>
+          <option value="🤣" class="light-accent" onclick="setEmotion(this)">🤣</option>
+          <option value="🥰" class="light-accent" onclick="setEmotion(this.value)">🥰</option>
+          <option value="🤡" class="light-accent" onclick="setEmotion(this.value)">🤡</option>
+          <option value="😥" class="light-accent" onclick="setEmotion(this.value)">😥</option>
+          <option value="😎" class="light-accent" onclick="setEmotion(this.value)">😎</option>
+          <option value="🙄" class="light-accent" onclick="setEmotion(this.value)">🙄</option>
+          <option value="😡" class="light-accent" onclick="setEmotion(this.value)">😡</option>
+          <option value="😑" class="light-accent" onclick="setEmotion(this.value)">😑</option>
+        </select>
       </div>
     </div>
 
@@ -77,7 +88,7 @@
     </div>
 
     <div class="subsection" id="newsRowSec">
-      <div class="news-section light-accent" id="newsContainer">
+      <div class="news-section light-accent-gradient" id="newsContainer">
         <icon>💥</icon>
         <a class="light-accent-text"
           href="https://globalnews.ca/news/7217388/coronavirus-ontario-cases-july-25-covid19/">

@@ -34,6 +34,10 @@ $dark-paper: #595959;
     color: $dark-bg;
 }
 
+.light-accent-gradient {
+    background-image: linear-gradient(to right, $light-bg, $light-accent, $light-bg,);
+}
+
 .light-accent-text {
     color: $dark-bg;
 }
@@ -55,6 +59,10 @@ $dark-paper: #595959;
 .dark-accent {
     background-color: $dark-accent;
     color: $light-bg;
+}
+
+.dark-accent-gradient {
+    background-image: linear-gradient(to right, $dark-bg, $dark-accent, $dark-bg);
 }
 
 .dark-accent-text {
@@ -358,15 +366,34 @@ body {
 ///////////////////////// End Note Section ///////////////////////
 
 ///////////////////////// Emotion Section ///////////////////////
+#emotionSec{
+    position: relative;
+    select{
+        margin-left: .5rem;
+        margin-top: .5rem;
+        appearance:none;   
+        -moz-appearance:none;   
+        -webkit-appearance:none;
+        border-radius: 20px;
+    }
+}
 #emoBtn {
-    width: 100%;
+    // width: 100%;
+    padding: 0;
 
     border: none;
     background: transparent;
     outline: none !important;
 
-    h1 {
+    font-size: 2.5rem;
+    
+
+    option {
+        // position: absolute;
+        // top: -2.5rem;
         text-shadow: 1px 1px 5px #00000040;
+        font-size: 2.5rem;
+        padding: .5rem;
     }
 }
 
@@ -386,7 +413,7 @@ body {
         height: 82%;
         position: relative;
         border-radius: 15px;
-       @extend %card-shadow;
+       
     }
 
     .activity {
@@ -411,6 +438,7 @@ body {
     .tip {
         width: 23%;
         overflow: hidden;
+        @extend %card-shadow;
 
         .tip-img {
             width: auto;
@@ -494,7 +522,8 @@ body {
         padding-right: 2rem;
 
         @extend %card-shadow;
-        border-radius: 50px;
+        // box-shadow: 0 2px 5px #00000040;
+        border-radius: 20px;
         
     }
     
