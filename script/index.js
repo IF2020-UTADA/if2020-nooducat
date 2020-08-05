@@ -89,9 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // add suggestion
-    for (let i = 0; i < 4; i++) {
+    for (let s of suggestionLinks) {
         document.querySelector('#suggestColSec').innerHTML += suggestion({
 
+            title: s.title,
+            link: s.link,
+            pic: s.pic,
         });
     }
     // set mode
@@ -347,3 +350,25 @@ var activities = {
     }
 }
 
+var suggestionLinks = [
+    {
+        title: "Reopening Ontario: Entering Stage 3",
+        link: "https://www.ontario.ca/page/reopening-ontario",
+        pic: "https://files.ontario.ca/stage1plan-image1-en.jpg",
+    },
+    {
+        title: "What to expect during the NBA’s return",
+        link: "https://www.sbnation.com/nba/2020/7/29/21335877/nba-preview-orlando-restart-check-in",
+        pic: "https://cdn.vox-cdn.com/thumbor/Qa8HVyp6xVSxfil3cpCoR7h4byY=/1400x1050/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/20668996/NBA.png",
+    },
+    {
+        title: "League of Legends Global Power Rankings",
+        link: "https://www.espn.com/esports/story/_/id/29590341/league-legends-global-power-rankings-august-3",
+        pic: "https://a3.espncdn.com/combiner/i?img=%2Fphoto%2F2018%2F1013%2Fr446321_1296x729_16%2D9.jpg",
+    },
+    {
+        title: "SNH48 7th general election",
+        link: "https://snh48g.fandom.com/wiki/7th_General_Election",
+        pic: "https://snh48.today/wp-content/uploads/2020/07/a04b2a1dgy1gggi3zmnd3j21z59kxx6z1.jpg",
+    },
+]
