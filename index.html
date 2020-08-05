@@ -89,12 +89,7 @@
 
     <div class="subsection" id="newsRowSec">
       <div class="news-section light-accent-gradient" id="newsContainer">
-        <icon>💥</icon>
-        <a class="light-accent-text"
-          href="https://globalnews.ca/news/7217388/coronavirus-ontario-cases-july-25-covid19/">
-          Ontario government reports 138 new coronavirus cases, 1 new death;
-          38,543 total cases
-        </a>
+        <!-- leave space for insert news links -->
       </div>
     </div>
   </div>
@@ -130,6 +125,13 @@
           {{content}}
         </p>
       </div>
+    </div>
+  </script>
+
+  <script id="newsTemplate" type="text/x-handlebars-template">
+    <div class="news">
+      <icon>💥</icon>
+      <a class="light-accent-text" href="{{ links }}">{{ news }}</a>
     </div>
   </script>
 
