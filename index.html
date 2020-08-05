@@ -47,16 +47,16 @@
         <!-- <button class="mx-auto" id="emoBtn">
           <h1>😀</h1>
         </button> -->
-        <select name="emotion" id="emoBtn" onchange="console.log('cli')">
-          <option value="😄" class="light-accent" onclick="console.log('clicked');">😄</option>
-          <option value="🤣" class="light-accent" onclick="setEmotion(this)">🤣</option>
-          <option value="🥰" class="light-accent" onclick="setEmotion(this.value)">🥰</option>
-          <option value="🤡" class="light-accent" onclick="setEmotion(this.value)">🤡</option>
-          <option value="😥" class="light-accent" onclick="setEmotion(this.value)">😥</option>
-          <option value="😎" class="light-accent" onclick="setEmotion(this.value)">😎</option>
-          <option value="🙄" class="light-accent" onclick="setEmotion(this.value)">🙄</option>
-          <option value="😡" class="light-accent" onclick="setEmotion(this.value)">😡</option>
-          <option value="😑" class="light-accent" onclick="setEmotion(this.value)">😑</option>
+        <select name="emotion" id="emoBtn" onchange="setEmotion(this.value)" onclick="setEmotion(this.value)">
+          <option value="😄" class="light-accent">😄</option>
+          <option value="🤣" class="light-accent">🤣</option>
+          <option value="🥰" class="light-accent">🥰</option>
+          <option value="🤡" class="light-accent">🤡</option>
+          <option value="😥" class="light-accent">😥</option>
+          <option value="😎" class="light-accent">😎</option>
+          <option value="🙄" class="light-accent">🙄</option>
+          <option value="😡" class="light-accent">😡</option>
+          <option value="😑" class="light-accent">😑</option>
         </select>
       </div>
     </div>
@@ -120,7 +120,6 @@
   <!-- Include Handlebars from a CDN -->
   <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-  <script src="script/tips.js"></script>
 
   <!-- Templates -->
   <script id="exampleTemplate" type="text/x-handlebars-template">

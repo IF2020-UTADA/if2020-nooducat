@@ -72,6 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
         getActivity('evening');
     }
 
+    // get emoCalendar
+    if (!localStorage['emoCalendar']){
+        localStorage['emoCalendar'] = "{}";
+    }
+    setEmotion(time.getDate());
+    
+
     // get tips
 
     // get news
@@ -106,46 +113,47 @@ function updateNote() {
 }
 
 
+// function setEmotion(emo){
+//     console.log(emo);
+//     if(!localStorage['emoList']){
+//         localStorage['emoList'] = "";
+//     }
+//     localStorage['emoList'] = emo + localStorage['emoList'];
+//     if(localStorage['emoList'].length >= 50){
+//         localStorage['emoList'] = localStorage['emoList'].substring(0, 50);
+//     } 
+//     console.log(localStorage['emoList']);
+// }
+
 function setEmotion(emo){
-    console.log(emo);
-    if(!localStorage['emoList']){
-        localStorage['emoList'] = "";
-    }
-    localStorage['emoList'] = emo + localStorage['emoList'];
-    if(localStorage['emoList'].length >= 50){
-        localStorage['emoList'] = localStorage['emoList'].substring(0, 50);
-    } 
-    console.log(localStorage['emoList']);
+    const t = new Date();
+    const year = t.getFullYear();
+    const month = t.getMonth() + 1;
+    const date = t.getDate();
+    const day = t.getDay();
+    updateEmotion(year, month, date, day, emo);
 }
 
-// function setEmotion(emo){
-//     const t = new Date();
-//     const year = t.getFullYear();
-//     const month = t.getMonth() + 1;
-//     const date = t.getDate();
-//     const day = t.getDay();
-//     updateEmotion(year, month, date, day, emo);
-// }
 
+function updateEmotion(year, month, date, day, emo){
+    let emoCalendar = JSON.parse(localStorage['emoCalendar']);
+    if (!emoCalendar){
+        emoCalendar = {}
+    }
+    if (!emoCalendar[year]){
+        emoCalendar[year] = {};
+    }
+    if (!emoCalendar[year][month]){
+        emoCalendar[year][month] = {};
+    }
+    if (!emoCalendar[year][month][date]){
+        emoCalendar[year][month][date] = {};
+    }
 
-// function updateEmotion(year, month, date, day, emo){
-//     if (!localStorage['emoCalendar']){
-//         localStorage['emoCalendar'] = {}
-//     }
-//     if (!localStorage['emoCalendar'][year]){
-//         localStorage['emoCalendar'][year] = {};
-//     }
-//     if (!localStorage['emoCalendar'][year][month]){
-//         localStorage['emoCalendar'][year][month] = {};
-//     }
-//     if (!localStorage['emoCalendar'][year][month][date]){
-//         localStorage['emoCalendar'][year][month][date] = {};
-//     }
-
-//     localStorage['emoCalendar'][year][month][date]['day'] = day;
-//     localStorage['emoCalendar'][year][month][date]['emo'] = emo;
-    
-// }
+    emoCalendar[year][month][date]['day'] = day;
+    emoCalendar[year][month][date]['emo'] = emo;
+    localStorage["emoCalendar"] = JSON.stringify(emoCalendar);
+}
 
 
 function getActivity(type) {
