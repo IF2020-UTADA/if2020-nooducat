@@ -7,6 +7,9 @@ const suggestion = Handlebars.compile(
 );
 
 
+const dayTime = 7;
+const nightTime = 19;
+
 document.addEventListener("DOMContentLoaded", () => {
     // get local webs
     if (localStorage["webLinks"]) {
@@ -49,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (h >= 24 || h <= 4) {
         // night
         getActivity('night');
-    } else if (h >= 5 && h <= 7) {
+    } else if (h >= 5 && h <= dayTime) {
         // wakeup
         getActivity('wakeup');
     } else if (h <= 11) {
@@ -61,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (h <= 17) {
         // afternoon (random)
         getActivity('afternoon');
-    } else if (h <= 19) {
+    } else if (h <= nightTime) {
         // dinner
         getActivity('dinner');
     } else if (h <= 23) {
@@ -92,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     // set mode
-    if (time.getHours() >= 20 || time.getHours() <= 7) {
+    if (time.getHours() >= nightTime || time.getHours() <= dayTime) {
         setDarkMode();
     }
 })

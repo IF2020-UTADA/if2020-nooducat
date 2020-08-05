@@ -14,7 +14,7 @@
 // }
 $light-bg: #f3f3f3;
 $light-accent: #ffffff;
-$light-paper: #F8DE7E;
+$light-paper: #eaeaea;
 
 $dark-bg: #363636;
 $dark-accent: #444444;
@@ -249,7 +249,7 @@ body {
     padding-right: 1.6rem;
 
 
-    background-color: #9BD1F5;
+    // background-color: #9BD1F5;
 
     #weatherIcon {
         margin-right: 1rem;
@@ -347,7 +347,7 @@ body {
     outline: none !important;
     border: none;
     // box-shadow: 1px 1px 5px gray;
-    @extend %shadow;
+    // @extend %shadow;
 }
 
 #note:focus {

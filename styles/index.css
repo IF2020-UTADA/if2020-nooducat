@@ -18,7 +18,7 @@
 }
 
 .light-paper {
-  background-color: #F8DE7E;
+  background-color: #eaeaea;
   color: #363636;
 }
 
@@ -45,7 +45,7 @@
   color: #f3f3f3;
 }
 
-#webColSec .web-icon, #note {
+#webColSec .web-icon {
   -webkit-box-shadow: 1px 1px 5px #00000040;
           box-shadow: 1px 1px 5px #00000040;
 }
@@ -229,7 +229,6 @@ body {
   height: 5rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
-  background-color: #9BD1F5;
 }
 
 #weatherCard #weatherIcon {
