@@ -2,6 +2,10 @@ const web = Handlebars.compile(
     document.querySelector('#webLinkTemplate').innerHTML
 );
 
+const pop = Handlebars.compile(
+    document.querySelector('#popTemplate').innerHTML
+);
+
 const news = Handlebars.compile(
     document.querySelector('#newsTemplate').innerHTML
 );
@@ -96,6 +100,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // add edit section
+    for (let w of webLinks) {
+        document.querySelector('#popContainer').innerHTML += pop({
+            name: w.name,
+            link: w.link,
+        });
+    }
+
+
+
     // add suggestion
     for (let i = 0; i < 4; i++) {
         document.querySelector('#suggestColSec').innerHTML += suggestion({
@@ -106,8 +120,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (time.getHours() >= nightTime || time.getHours() <= dayTime) {
         setDarkMode();
     }
+
 })
 
+function popUp() {
+    document.getElementById("popUp").style.visibility = "visible";
+    console.log(1);
+}
+
+function popHide() {
+    document.getElementById("popUp").style.visibility = "hidden";
+}
 
 function updateNote() {
     localStorage['note'] = document.querySelector('#note').value;
@@ -374,7 +397,7 @@ var newsLinks = [
     },
     {
         link: "https://www.businessinsider.com/dinosaur-diagnosed-with-cancer-first-case-2020-8",
-        news: "A dinosaur has been diagnosed with cancer for the first time. Here's how the scientists did it 111111111111111111111111111111111111111111111111111111"
+        news: "A dinosaur has been diagnosed with cancer for the first time. Here's how the scientists did it."
     },
     {
         link: "https://www.aljazeera.com/ajimpact/trump-demand-cut-tiktok-microsoft-deal-lacks-precedent-200804191413499.html",
