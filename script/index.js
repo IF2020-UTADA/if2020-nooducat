@@ -16,7 +16,7 @@ const suggestion = Handlebars.compile(
 
 
 const dayTime = 7;
-const nightTime = 19;
+const nightTime = 20;
 let activityTrack = ["morning", -1];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -218,6 +218,7 @@ function initializeEmotion(d){
     }
     if (!emoCalendar[year][month][date]){
         emoCalendar[year][month][date] = {};
+        localStorage["emoCalendar"] = JSON.stringify(emoCalendar);
         setEmotion(date);
         document.querySelector('#emoBtn').value = "😄";
     } else {
