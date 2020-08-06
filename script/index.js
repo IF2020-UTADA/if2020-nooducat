@@ -20,9 +20,7 @@ const nightTime = 19;
 
 document.addEventListener("DOMContentLoaded", () => {
     // get local webs
-    if (localStorage["webLinks"]) {
-        webLinks = localStorage["webLinks"];
-    }
+    
 
     // get time
     const time = new Date();
@@ -42,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 icon = "🏙";
                 color = "#DFDFDF";
             }
-
 
             document.querySelector('#weatherTemp').innerHTML = temp;
             document.querySelector('#weatherIconA').innerHTML = icon;
@@ -91,23 +88,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // get suggestion
 
     // add web links
-    for (let w of webLinks) {
-        document.querySelector('#webContainer').innerHTML += web({
-            name: w.name,
-            link: w.link,
-            icon: w.name.charAt(0),
-            bg: w.bg,
-        });
+    if (!localStorage["webLinks"]) {
+        localStorage["webLinks"] = JSON.stringify(defaultWebLinks);
     }
 
-    // add edit section
-    for (let w of webLinks) {
-        document.querySelector('#popContainer').innerHTML += pop({
-            name: w.name,
-            link: w.link,
-        });
-    }
+    updateWebLinks();
 
+    
 
 
     // add suggestion
@@ -126,9 +113,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
+function saveLinks(){
+    let webs = [];
+    let colors = [];
+    document.querySelectorAll('.pop-red').forEach(n => {
+        colors.push(n.style.backgroundColor);
+    });
+    let names = [];
+    let icons = [];
+    document.querySelectorAll('.pop-name').forEach(n => {
+        names.push(n.value);
+        icons.push(n.value.charAt(0))
+    });
+    let links = [];
+    document.querySelectorAll('.pop-link').forEach(n => {
+        links.push(n.value);
+    });
+
+
+    for(let i = 0; i < names.length; i++){
+        webs.push({name: names[i], link: links[i], icon: icons[i], bg: colors[i]});
+    }
+
+    localStorage["webLinks"] = JSON.stringify(webs);
+    updateWebLinks();
+    popHide();
+}
+
+function updateWebLinks(){
+    let weblinks = JSON.parse(localStorage["webLinks"]);
+    document.querySelector('#webContainer').innerHTML = "";
+    for (let w of weblinks) {
+        document.querySelector('#webContainer').innerHTML += web({
+            name: w.name,
+            link: w.link,
+            icon: w.icon,
+            bg: w.bg,
+        });
+    }
+}
+
+
 function popUp() {
     document.getElementById("popUp").style.visibility = "visible";
     console.log(1);
+    // add edit section
+    document.querySelector('#popContainer').innerHTML = "";
+    for (let w of JSON.parse(localStorage["webLinks"])) {
+        document.querySelector('#popContainer').innerHTML += pop({
+            name: w.name,
+            link: w.link,
+            bg: w.bg,
+        });
+    }
+    setDarkMode();
+
 }
 
 function popHide() {
@@ -236,35 +275,41 @@ function setDarkMode() {
 
 
 
-var webLinks = [
+var defaultWebLinks = [
     {
         name: "Google",
         link: "https://www.google.com",
+        icon: 'G',
         bg: "#FF5C5C",
     },
     {
         name: "Acorn",
         link: "https://acorn.utoronto.ca/",
+        icon: 'A',
         bg: "#5A63DB",
     },
     {
         name: "Quercus",
         link: "https://q.utoronto.ca/",
+        icon: 'Q',
         bg: "#FF5B81",
     },
     {
         name: "Outlook",
         link: "https://www.outlook.com",
+        icon: 'O',
         bg: "#58B1FF",
     },
     {
         name: "Youtube",
         link: "https://www.youtube.com/",
+        icon: 'Y',
         bg: "#FF2525",
     },
     {
         name: "Github",
         link: "https://github.com/",
+        icon: 'G',
         bg: "#1C1C1C",
     },
 ]

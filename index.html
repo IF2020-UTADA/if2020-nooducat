@@ -100,13 +100,13 @@
   </div>
 
   <div id="popUp">
-    <div class="popwindow light">
-      <div id="popContainer">
+    <div class="pop-window light">
+      <div id="popContainer" class="mx-auto">
         <!-- leave space for insert webs -->
       </div>
-      <div class="popbuttons ">
+      <div class="pop-buttons ">
         <button class="light-accent" id="cancelButton" onclick="popHide()">Cancel</button>
-        <button class="light-accent" id="saveButton" onclick="popHide()">Save</button>
+        <button class="light-accent" id="saveButton" onclick="saveLinks()">Save</button>
       </div>
       
     </div>
@@ -150,10 +150,10 @@
   </script>
 
   <script id="popTemplate" type="text/x-handlebars-template">
-    <div class="pop">
-      <div class="popred"></div>
-      <input class="popname light-accent" size="12" type="text" value="{{ name }}"></input>
-      <input class="poplink light-accent" size="30" type="text" value="{{ link }}"></input>
+    <div class="pop mx-auto">
+      <div class="pop-red" style="background-color: {{ bg }};"></div>
+      <input class="pop-name light-accent" size="12" type="text" value="{{ name }}"></input>
+      <input class="pop-link light-accent" size="30" type="text" value="{{ link }}"></input>
     </div>
   </script>
 

@@ -84,9 +84,9 @@ $dark-paper: #595959;
 
 %pop-size{
     position: relative;
-    height: 3em;
+    height: 2rem;
     border-radius: 10px;
-    margin-top: 1.5em;
+    margin-top: 1rem;
 }
 
 html,
@@ -249,7 +249,7 @@ body {
     
 }
 
-.popwindow{
+.pop-window{
     @extend %shadow;
     position: absolute;
     z-index: 1001;
@@ -259,38 +259,42 @@ body {
     width: 40%;
     height: 60%;
     border-radius: 30px;
+    *{
+        outline: none !important;
+    }
 
-    .popred{
+    #popContainer{
+        padding-top: 1.5em;
+    }
+
+    .pop-red{
         @extend %pop-size;
-        width: 3em;
+        width: 2rem;
         background: #FF5C5C;
         float: left;
-        margin-left: 17%;
-
+        margin-left: 3rem;
     }
 
-    .popname{
+    .pop-name{
         @extend %pop-size;
         float: left;
-        margin-left: 3%;
-        padding-left: 0.5em;
+        margin-left: 1rem;
+        padding-left: .5em;
         border: none;
     }
 
-    .poplink{
+    .pop-link{
         @extend %pop-size;
 
-        padding-left: 0.5em;
-        margin-left: 3%;
+        padding-left: .5em;
+        margin-left: 1rem;
         border: none;
     }
 }
 
-#popContainer{
-    padding-top: 3em;
-}
 
-.popbuttons{
+
+.pop-buttons{
     position: relative;
     display: flex;
     justify-content: center;
@@ -661,6 +665,8 @@ body {
 
     .sugg-img{
         margin-bottom: .5rem;
+        width: 15rem;
+        height: auto;
     }
 
     .sugg-title{
