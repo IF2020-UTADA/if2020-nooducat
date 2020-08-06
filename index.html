@@ -18,7 +18,7 @@
       <!-- leave space for insert web links -->
     </div>
     <button class="mx-auto">
-      <div class="edit-bar"></div>
+      <div class="edit-bar" onclick="popUp()"></div>
     </button>
   </div>
 
@@ -58,6 +58,7 @@
           <option value="😡" class="light-accent">😡</option>
           <option value="😑" class="light-accent">😑</option>
         </select>
+
       </div>
     </div>
 
@@ -73,28 +74,25 @@
         </div>
       </div>
       <div class="tip" id="lifeTips">
-        <p class="texts top-line">Try ...</p>
-        <p class="texts name">XXX Cake</p>
-        <p class="texts bottom-line">for breakfast?</p>
-        <img class="tip-img" id="foodImg" src="images/cake.jpg" />
+        <p class="texts top-line" id="foodTopline">Try ...</p>
+        <div class="lifeTogether">
+        <p class="texts name" id="foodName"></p>
+        <p class="texts bottom-line"></p>
+      </div>
+        <img class="tip-img" id="foodImg" src="#" />
       </div>
       <div class="tip" id="localTips">
-        <p class="texts top-line">A walk to ...</p>
-        <p class="texts name">Canada Day Parade</p>
+        <p class="texts top-line" id="localTopline"></p>
+        <p class="texts name" id="localName"></p>
         <!-- <h2 class= "local-texts" id="localSecond"></h2>
           <h2 class = "local-texts" id="localThird"></h2> -->
-        <img class="tip-img" id="ActivityImg" src="images/parade.jpg" />
+        <img class="tip-img" id="ActivityImg" src="#" />
       </div>
     </div>
 
     <div class="subsection" id="newsRowSec">
       <div class="news-section light-accent-gradient" id="newsContainer">
-        <icon>💥</icon>
-        <a class="light-accent-text"
-          href="https://globalnews.ca/news/7217388/coronavirus-ontario-cases-july-25-covid19/">
-          Ontario government reports 138 new coronavirus cases, 1 new death;
-          38,543 total cases
-        </a>
+        <!-- leave space for insert news links -->
       </div>
     </div>
   </div>
@@ -103,6 +101,19 @@
     <h3 class="light-text">Suggest to Read:</h3>
   </div>
 
+  <div id="popUp">
+    <div class="pop-window light">
+      <div id="popContainer" class="mx-auto">
+        <!-- leave space for insert webs -->
+      </div>
+      <div class="pop-buttons ">
+        <button class="light-accent" id="cancelButton" onclick="popHide()">Cancel</button>
+        <button class="light-accent" id="saveButton" onclick="saveLinks()">Save</button>
+      </div>
+      
+    </div>
+  
+  </div>
   <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
   <!-- Bootstrap js -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -132,6 +143,21 @@
     </div>
   </script>
 
+  <script id="newsTemplate" type="text/x-handlebars-template">
+    <div class="news">
+      <icon>💥</icon>
+      <a class="light-accent-text" href="{{ links }}">{{ news }}</a>
+    </div>
+  </script>
+
+  <script id="popTemplate" type="text/x-handlebars-template">
+    <div class="pop mx-auto">
+      <div class="pop-red" style="background-color: {{ bg }};"></div>
+      <input class="pop-name light-accent" size="12" type="text" value="{{ name }}"></input>
+      <input class="pop-link light-accent" size="30" type="text" value="{{ link }}"></input>
+    </div>
+  </script>
+
   <script id="webLinkTemplate" type="text/x-handlebars-template">
     <div class="web">
       <a href="{{ link }}">
@@ -143,9 +169,9 @@
 
   <script id="suggestionTemplate" type="text/x-handlebars-template">
     <div class="card sugg-card light-accent mx-auto">
-      <img class="sugg-img" src="./images/LS10.jpg" alt="">
-      <a href="#">
-        <h4 class="sugg-title light-accent-text">Leory Sane Signed for Bayern asdqw</h4>
+      <img class="sugg-img" src="{{ pic }}" alt="">
+      <a href="{{ link }}">
+        <h4 class="sugg-title light-accent-text">{{ title }} </h4>
       </a>
     </div>
   </script>
