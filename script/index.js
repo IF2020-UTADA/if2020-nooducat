@@ -548,9 +548,11 @@ var tryTips = {
         },
     ],
     lunch: {
+        choices: [{
         text: "Taco",
         supplement:"for lunch?",
         image: "./images/taco.jpg",    
+    }]
     },
     afternoon: [
         {
@@ -570,9 +572,11 @@ var tryTips = {
         },
     ],
     dinner: {
+        choices: [{
         text: "Spaghetti",
         supplement:"for dinner?",
-        image: "./images/spaghetti.jpg", 
+        image: "./images/spaghetti.jpg",
+    }] 
     },
     evening: [
         {
