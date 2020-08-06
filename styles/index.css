@@ -493,6 +493,7 @@ body {
 #tipsRowSec .tip {
   width: 23%;
   overflow: hidden;
+  position: relative;
 }
 
 #tipsRowSec .tip .tip-img {
@@ -516,12 +517,19 @@ body {
   top: 1rem;
 }
 
-#tipsRowSec .tip .bottom-line {
+#tipsRowSec .tip .lifeTogether {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+}
+
+#tipsRowSec .tip .lifeTogether .bottom-line {
   bottom: 1rem;
 }
 
 #tipsRowSec .tip .name {
   bottom: 3rem;
+  vertical-align: auto;
   font-size: 2rem;
   font-weight: 700;
 }

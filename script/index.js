@@ -17,6 +17,7 @@ const suggestion = Handlebars.compile(
 
 const dayTime = 7;
 const nightTime = 19;
+let activityTrack = ["morning", -1];
 
 document.addEventListener("DOMContentLoaded", () => {
     // get local webs
@@ -78,6 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // get tips
+
+
+    getTrytips(activityTrack);
+    getLocaltips();
 
     // get news
     const random = Math.floor(Math.random() * newsLinks.length);
@@ -226,14 +231,44 @@ function getActivity(type) {
         document.querySelector('#activityTitle').textContent = activities[type].text;
         document.querySelector('#activityImage').src = activities[type].image;
         document.querySelector('.activity').style.backgroundColor = activities[type].color;
+        activityTrack = [type, -1];
     } else {
         // random
         const rand = Math.floor(Math.random() * activities[type].length);
         document.querySelector('#activityTitle').textContent = activities[type][rand].text;
         document.querySelector('#activityImage').src = activities[type][rand].image;
         document.querySelector('.activity').style.backgroundColor = activities[type][rand].color;
+        activityTrack = [type, rand];
     }
 }
+
+
+function getTrytips(type){
+    if (type[1] === -1){
+        const rand = Math.floor(Math.random() * tryTips[type[0]].choices.length);
+        document.querySelector('.name').textContent = tryTips[type[0]].choices[rand].text;
+        document.querySelector('.bottom-line').textContent = tryTips[type[0]].choices[rand].supplement;        
+        document.querySelector('#foodImg').src = tryTips[type[0]].choices[rand].image;
+    } else {
+        let tryActivity = tryTips[type[0]][type[1]]
+        const rand = Math.floor(Math.random() * tryActivity.choices.length);
+        document.querySelector('#foodName').textContent = tryActivity.choices[rand].text;
+        document.querySelector('.bottom-line').textContent = tryActivity.choices[rand].supplement;        
+        document.querySelector('#foodImg').src = tryActivity.choices[rand].image;
+    }
+}
+
+
+
+
+function getLocaltips(){
+    const rand = Math.floor(Math.random() * localTips["doThis"].length);
+    document.querySelector('#localTopline').textContent = localTips["doThis"][rand].textOne;
+    document.querySelector('#localName').textContent = localTips["doThis"][rand].textTwo;        
+    document.querySelector('#ActivityImg').src = localTips["doThis"][rand].image;
+}
+
+
 
 function setDarkMode() {
     document.querySelectorAll('.light').forEach(i => {
@@ -424,6 +459,191 @@ var activities = {
         image: "./images/sleep.svg",
         color: "#001939",
     }
+}
+
+
+var tryTips = {
+    wakeup: {
+        choices:[{
+            text: "A Cup of Water",
+            supplement:"when wake up?",
+            image: "./images/water cup.jpg",
+        }]
+    },
+    breakfast: {
+        choices:[{
+            text: "Chocolate Cake",
+            supplement:"for breakfast?",
+            image: "./images/cake.jpg",
+        }]
+    },
+    morning: [
+        {
+            
+            choices:[{
+                text: "Vegan Pumpkin Spice Latte",
+                supplement:"for coffe?",
+                image: "./images/Vegan-Pumpkin-Spice-Latte.jpg",
+            },
+            {
+                text:"Light Cinnamon Roll Mocha",
+                supplement:"for coffe?",
+                image: "./images/healthy-cinnamon-roll-mocha.jpg"
+            },
+            {
+                text:"Refreshing Lavender Honey Iced Lattes",
+                supplement:"for coffe?",
+                image: "./images/Refreshing Lavender Honey Iced Lattes.jpg"
+            }]
+            
+        },
+        {
+            choices:[{
+                text: "Training Arm Muscles",
+                supplement:"recommand: Pushups + Biceps Curl",
+                image: "./images/arm-muscles.jpg",               
+            },
+            {
+                text: "Pre-workout Green Smoothie",
+                supplement:"and do some exercises?",
+                image: "./images/pre-workout-smoothie.jpg",
+            }]
+        },
+        {
+            choices:[{
+                text: "Mango Green Tea",
+                supplement:"while chatting?",
+                image: "./images/mango-greentea.jpg",               
+            }]
+        },
+    ],
+    lunch: {
+        text: "Taco",
+        supplement:"for lunch?",
+        image: "./images/taco.jpg",    
+    },
+    afternoon: [
+        {
+            choices:[{
+            text: "Crepe",
+            supplement:"for afternoon-tea?",
+            image: "./images/crepe.jpg",    
+            }]
+        },
+        {
+            choices:[{
+                text: "Jazz Music",
+                supplement:"while walking?",
+                image: "./images/jazz.jpeg",    
+            }]
+
+        },
+    ],
+    dinner: {
+        text: "Spaghetti",
+        supplement:"for dinner?",
+        image: "./images/spaghetti.jpg", 
+    },
+    evening: [
+        {
+            choices:[
+            {
+                text: "Hamlet",
+                supplement:"to read?",
+                image: "./images/hamlet.jpg",    
+            },    
+            {
+                text: "Harry Potter And The Order Of The Phoenix",
+                supplement:"to read?",
+                image: "./images/harrypotter.jpg",    
+
+            }]
+        },
+        {
+            choices:[{
+                text: "Sonic The Hedgehog",
+                supplement:"for movie?",
+                image: "./images/sonic.jpg",    
+            },
+            {
+                text: "Detective Pikachu",
+                supplement:"for movie?",
+                image: "./images/pokemon.jpg",                   
+            }]
+        },
+        {
+            choices:[{
+                text: "Training Arm Muscles",
+                supplement:"Pushups + Biceps Curl",
+                image: "./images/arm-muscles.jpg",               
+            }]
+        },
+        {
+            choices:[{
+                text: "Mint Lemonade",
+                supplement:"while taking the bath?",
+                image: "./images/lemonade.jpg",               
+            }]
+        },
+    ],
+    night: {
+        choices:[{
+            text: "Richard Clayderman's Piano Music",
+            supplement:"to sleep better?",
+            image: "./images/richard.jpg",               
+        },
+        {
+            text: "Some Hot Milk",
+            supplement:"to sleep better?",
+            image: "./images/milk.jpg"
+        }
+        ]
+    }
+}
+
+var localTips = {
+    doThis:[
+        {
+            textOne: "Go to ...",
+            textTwo:"Toronto International Film Festival",
+            image: "./images/tiff.jpg",
+        },
+        {
+            textOne:"A walk to ...",
+            textTwo:"Canada Day Parade",
+            image: "./images/parade.jpg"
+        },
+        {
+            textOne:"Join the ...",
+            textTwo:"UofT Frosh Week",
+            image: "./images/frosh.jpg"
+        },
+        {
+            textOne:"Go to ...",
+            textTwo:"Blue Jay vs Red Sox",
+            image: "./images/bluejay.jpg"
+        },
+        {
+            textOne:"Join the ...",
+            textTwo:"Innovation Fair 2020 Presentation",
+            image: "./images/if.jpg"
+        },
+        {
+            textOne:"Go see the ...",
+            textTwo:"perseid meteor",
+            image: "./images/perseid meteor.jpg"
+        },
+        {
+            textOne:"Go to the ...",
+            textTwo:"Picasso: Painting the Blue Period",
+            image: "./images/picasso.jpg"
+        },
+        {
+            textOne:"Go to the ...",
+            textTwo:" Imagine Dragon at Casa Loma",
+            image: "./images/casaloma.jpg"
+        },              
+    ]
 }
 
 

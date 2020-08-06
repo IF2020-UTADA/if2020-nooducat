@@ -526,6 +526,7 @@ body {
         width: 23%;
         overflow: hidden;
         @extend %card-shadow;
+        position: relative;
 
         .tip-img {
             width: auto;
@@ -548,12 +549,20 @@ body {
             top: 1rem;
         }
 
-        .bottom-line {
+        .lifeTogether{
+            position: absolute;
             bottom: 1rem;
+            width: 100%;
+            
+            .bottom-line {
+                bottom: 1rem;            
+            }
+    
         }
 
         .name {
             bottom: 3rem;
+            vertical-align: auto;
             font-size: 2rem;
             font-weight: 700;
         }
