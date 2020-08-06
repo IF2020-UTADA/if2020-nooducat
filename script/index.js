@@ -2,6 +2,14 @@ const web = Handlebars.compile(
     document.querySelector('#webLinkTemplate').innerHTML
 );
 
+const pop = Handlebars.compile(
+    document.querySelector('#popTemplate').innerHTML
+);
+
+const news = Handlebars.compile(
+    document.querySelector('#newsTemplate').innerHTML
+);
+
 const suggestion = Handlebars.compile(
     document.querySelector('#suggestionTemplate').innerHTML
 );
@@ -75,7 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // get tips
 
     // get news
-
+    const random = Math.floor(Math.random() * newsLinks.length);
+    document.querySelector('#newsContainer').innerHTML = news({
+        links: newsLinks[random].link,
+        news: newsLinks[random].news
+    })
     // get suggestion
 
     // add web links
@@ -87,6 +99,16 @@ document.addEventListener("DOMContentLoaded", () => {
             bg: w.bg,
         });
     }
+
+    // add edit section
+    for (let w of webLinks) {
+        document.querySelector('#popContainer').innerHTML += pop({
+            name: w.name,
+            link: w.link,
+        });
+    }
+
+
 
     // add suggestion
     for (let s of suggestionLinks) {
@@ -101,8 +123,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (time.getHours() >= nightTime || time.getHours() <= dayTime) {
         setDarkMode();
     }
+
 })
 
+function popUp() {
+    document.getElementById("popUp").style.visibility = "visible";
+    console.log(1);
+}
+
+function popHide() {
+    document.getElementById("popUp").style.visibility = "hidden";
+}
 
 function updateNote() {
     localStorage['note'] = document.querySelector('#note').value;
@@ -350,6 +381,34 @@ var activities = {
     }
 }
 
+
+var newsLinks = [
+    {
+        link: "https://globalnews.ca/news/7251612/ontario-coronavirus-cases-august-5-covid19/",
+        news: "Ontario reports 86 new coronavirus cases, 3rd day in a row with fewer than 100 cases"
+    },
+    {
+        link:"https://www.cbc.ca/news/world/trump-lebanon-explosion-1.5675120",
+        news: "U.S. defence officials contradict Trump's claim of Beirut 'attack'"
+    },
+    {
+        link: "https://www.cbc.ca/news/politics/vaccine-procurement-anand-bains-1.5674820",
+        news: "Feds sign agreements with Pfizer, Moderna for millions of doses of COVID-19 vaccines"
+    },
+    {
+        link: "https://techcrunch.com/2020/08/05/twitter-android-bug-direct-messages/?guccounter=1&guce_referrer=aHR0cHM6Ly9uZXdzLmdvb2dsZS5jb20v&guce_referrer_sig=AQAAAI7YmF0zQ-g-6X49hEg4h_49mxnHc0tdxHLsSXKrBYKIKm4k04S9UA3SBX_Y-pxfLbNkrYtR7ceugMvyRUp5lexzp4rLM-2iyLUWKylASybaRKVn4lTuu8BT3Raz3t4TgnvKDwsqamvU3BJcBq9bSb-xn1N3O5b7dQSc-hnVeirK",
+        news: "Twitter says Android security bug gave access to direct messages"
+    },
+    {
+        link: "https://www.businessinsider.com/dinosaur-diagnosed-with-cancer-first-case-2020-8",
+        news: "A dinosaur has been diagnosed with cancer for the first time. Here's how the scientists did it."
+    },
+    {
+        link: "https://www.aljazeera.com/ajimpact/trump-demand-cut-tiktok-microsoft-deal-lacks-precedent-200804191413499.html",
+        news: "Trump's demand for cut of TikTok-Microsoft deal lacks precedent"
+    }
+]
+
 var suggestionLinks = [
     {
         title: "Reopening Ontario: Entering Stage 3",
@@ -372,3 +431,4 @@ var suggestionLinks = [
         pic: "https://snh48.today/wp-content/uploads/2020/07/a04b2a1dgy1gggi3zmnd3j21z59kxx6z1.jpg",
     },
 ]
+
