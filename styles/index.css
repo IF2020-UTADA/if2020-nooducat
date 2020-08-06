@@ -531,6 +531,11 @@ body {
 }
 
 #suggestColSec .sugg-img {
+  width: 14rem;
+  height: 14rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: .5rem;
   margin-bottom: .5rem;
 }
 
