@@ -2,6 +2,14 @@ const web = Handlebars.compile(
     document.querySelector('#webLinkTemplate').innerHTML
 );
 
+const pop = Handlebars.compile(
+    document.querySelector('#popTemplate').innerHTML
+);
+
+const news = Handlebars.compile(
+    document.querySelector('#newsTemplate').innerHTML
+);
+
 const suggestion = Handlebars.compile(
     document.querySelector('#suggestionTemplate').innerHTML
 );
@@ -13,9 +21,7 @@ let activityTrack = ["morning", -1];
 
 document.addEventListener("DOMContentLoaded", () => {
     // get local webs
-    if (localStorage["webLinks"]) {
-        webLinks = localStorage["webLinks"];
-    }
+    
 
     // get time
     const time = new Date();
@@ -35,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 icon = "🏙";
                 color = "#DFDFDF";
             }
-
 
             document.querySelector('#weatherTemp').innerHTML = temp;
             document.querySelector('#weatherIconA').innerHTML = icon;
@@ -80,31 +85,99 @@ document.addEventListener("DOMContentLoaded", () => {
     getLocaltips();
 
     // get news
-
+    const random = Math.floor(Math.random() * newsLinks.length);
+    document.querySelector('#newsContainer').innerHTML = news({
+        links: newsLinks[random].link,
+        news: newsLinks[random].news
+    })
     // get suggestion
 
     // add web links
-    for (let w of webLinks) {
-        document.querySelector('#webContainer').innerHTML += web({
-            name: w.name,
-            link: w.link,
-            icon: w.name.charAt(0),
-            bg: w.bg,
-        });
+    if (!localStorage["webLinks"]) {
+        localStorage["webLinks"] = JSON.stringify(defaultWebLinks);
     }
 
+    updateWebLinks();
+
+    
+
+
     // add suggestion
-    for (let i = 0; i < 4; i++) {
+    for (let s of suggestionLinks) {
         document.querySelector('#suggestColSec').innerHTML += suggestion({
 
+            title: s.title,
+            link: s.link,
+            pic: s.pic,
         });
     }
     // set mode
     if (time.getHours() >= nightTime || time.getHours() <= dayTime) {
         setDarkMode();
     }
+
 })
 
+function saveLinks(){
+    let webs = [];
+    let colors = [];
+    document.querySelectorAll('.pop-red').forEach(n => {
+        colors.push(n.style.backgroundColor);
+    });
+    let names = [];
+    let icons = [];
+    document.querySelectorAll('.pop-name').forEach(n => {
+        names.push(n.value);
+        icons.push(n.value.charAt(0))
+    });
+    let links = [];
+    document.querySelectorAll('.pop-link').forEach(n => {
+        links.push(n.value);
+    });
+
+
+    for(let i = 0; i < names.length; i++){
+        webs.push({name: names[i], link: links[i], icon: icons[i], bg: colors[i]});
+    }
+
+    localStorage["webLinks"] = JSON.stringify(webs);
+    updateWebLinks();
+    popHide();
+}
+
+function updateWebLinks(){
+    let weblinks = JSON.parse(localStorage["webLinks"]);
+    document.querySelector('#webContainer').innerHTML = "";
+    for (let w of weblinks) {
+        document.querySelector('#webContainer').innerHTML += web({
+            name: w.name,
+            link: w.link,
+            icon: w.icon,
+            bg: w.bg,
+        });
+    }
+}
+
+
+function popUp() {
+    document.getElementById("popUp").style.visibility = "visible";
+    console.log(1);
+    // add edit section
+    document.querySelector('#popContainer').innerHTML = "";
+    for (let w of JSON.parse(localStorage["webLinks"])) {
+        document.querySelector('#popContainer').innerHTML += pop({
+            name: w.name,
+            link: w.link,
+            bg: w.bg,
+        });
+    }
+    setDarkMode();
+
+}
+
+function popHide() {
+    document.getElementById("popUp").style.visibility = "hidden";
+}
 
 function updateNote() {
     localStorage['note'] = document.querySelector('#note').value;
@@ -237,35 +310,41 @@ function setDarkMode() {
 
 
 
-var webLinks = [
+var defaultWebLinks = [
     {
         name: "Google",
         link: "https://www.google.com",
+        icon: 'G',
         bg: "#FF5C5C",
     },
     {
         name: "Acorn",
         link: "https://acorn.utoronto.ca/",
+        icon: 'A',
         bg: "#5A63DB",
     },
     {
         name: "Quercus",
         link: "https://q.utoronto.ca/",
+        icon: 'Q',
         bg: "#FF5B81",
     },
     {
         name: "Outlook",
         link: "https://www.outlook.com",
+        icon: 'O',
         bg: "#58B1FF",
     },
     {
         name: "Youtube",
         link: "https://www.youtube.com/",
+        icon: 'Y',
         bg: "#FF2525",
     },
     {
         name: "Github",
         link: "https://github.com/",
+        icon: 'G',
         bg: "#1C1C1C",
     },
 ]
@@ -568,24 +647,53 @@ var localTips = {
 }
 
 
+var newsLinks = [
+    {
+        link: "https://globalnews.ca/news/7251612/ontario-coronavirus-cases-august-5-covid19/",
+        news: "Ontario reports 86 new coronavirus cases, 3rd day in a row with fewer than 100 cases"
+    },
+    {
+        link:"https://www.cbc.ca/news/world/trump-lebanon-explosion-1.5675120",
+        news: "U.S. defence officials contradict Trump's claim of Beirut 'attack'"
+    },
+    {
+        link: "https://www.cbc.ca/news/politics/vaccine-procurement-anand-bains-1.5674820",
+        news: "Feds sign agreements with Pfizer, Moderna for millions of doses of COVID-19 vaccines"
+    },
+    {
+        link: "https://techcrunch.com/2020/08/05/twitter-android-bug-direct-messages/?guccounter=1&guce_referrer=aHR0cHM6Ly9uZXdzLmdvb2dsZS5jb20v&guce_referrer_sig=AQAAAI7YmF0zQ-g-6X49hEg4h_49mxnHc0tdxHLsSXKrBYKIKm4k04S9UA3SBX_Y-pxfLbNkrYtR7ceugMvyRUp5lexzp4rLM-2iyLUWKylASybaRKVn4lTuu8BT3Raz3t4TgnvKDwsqamvU3BJcBq9bSb-xn1N3O5b7dQSc-hnVeirK",
+        news: "Twitter says Android security bug gave access to direct messages"
+    },
+    {
+        link: "https://www.businessinsider.com/dinosaur-diagnosed-with-cancer-first-case-2020-8",
+        news: "A dinosaur has been diagnosed with cancer for the first time. Here's how the scientists did it."
+    },
+    {
+        link: "https://www.aljazeera.com/ajimpact/trump-demand-cut-tiktok-microsoft-deal-lacks-precedent-200804191413499.html",
+        news: "Trump's demand for cut of TikTok-Microsoft deal lacks precedent"
+    }
+]
 
+var suggestionLinks = [
+    {
+        title: "Reopening Ontario: Entering Stage 3",
+        link: "https://www.ontario.ca/page/reopening-ontario",
+        pic: "https://files.ontario.ca/stage1plan-image1-en.jpg",
+    },
+    {
+        title: "What to expect during the NBA’s return",
+        link: "https://www.sbnation.com/nba/2020/7/29/21335877/nba-preview-orlando-restart-check-in",
+        pic: "https://cdn.vox-cdn.com/thumbor/Qa8HVyp6xVSxfil3cpCoR7h4byY=/1400x1050/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/20668996/NBA.png",
+    },
+    {
+        title: "League of Legends Global Power Rankings",
+        link: "https://www.espn.com/esports/story/_/id/29590341/league-legends-global-power-rankings-august-3",
+        pic: "https://a3.espncdn.com/combiner/i?img=%2Fphoto%2F2018%2F1013%2Fr446321_1296x729_16%2D9.jpg",
+    },
+    {
+        title: "SNH48 7th general election",
+        link: "https://snh48g.fandom.com/wiki/7th_General_Election",
+        pic: "https://snh48.today/wp-content/uploads/2020/07/a04b2a1dgy1gggi3zmnd3j21z59kxx6z1.jpg",
+    },
+]
 
-/*
-            doThis:[
-                {
-                    textOne: "Go to ...",
-                    textTwo:"Tiff (Toronto International Film Festival)",
-                    image: "tiff.jpg",
-                },
-                {
-                    text:"Light Cinnamon Roll Mocha",
-                    supplement:"for coffe?",
-                    image: "healthy-cinnamon-roll-mocha.jpg"
-                },
-                {
-                    text:"Refreshing Lavender Honey Iced Lattes",
-                    supplement:"for coffe?",
-                    image: "Refreshing Lavender Honey Iced Lattes"
-                }
-            ]
-*/
