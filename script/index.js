@@ -82,12 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!localStorage['emoCalendar']){
         localStorage['emoCalendar'] = "{}";
     }
-    setEmotion(time.getDate());
+    // setEmotion(time.getDate());
+    initializeEmotion(time.getDate());
     
 
     // get tips
-
-
     getTrytips(activityTrack);
     getLocaltips();
 
@@ -105,9 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     updateWebLinks();
-
-    
-
 
     // add suggestion
     for (let s of suggestionLinks) {
@@ -178,8 +174,9 @@ function popUp() {
             bg: w.bg,
         });
     }
-    setDarkMode();
-
+    if (time.getHours() >= nightTime || time.getHours() <= dayTime) {
+        setDarkMode();
+    }
 }
 
 function popHide() {
@@ -203,17 +200,12 @@ function updateNote() {
 //     console.log(localStorage['emoList']);
 // }
 
-function setEmotion(emo){
+function initializeEmotion(d){
     const t = new Date();
     const year = t.getFullYear();
     const month = t.getMonth() + 1;
     const date = t.getDate();
     const day = t.getDay();
-    updateEmotion(year, month, date, day, emo);
-}
-
-
-function updateEmotion(year, month, date, day, emo){
     let emoCalendar = JSON.parse(localStorage['emoCalendar']);
     if (!emoCalendar){
         emoCalendar = {}
@@ -226,7 +218,37 @@ function updateEmotion(year, month, date, day, emo){
     }
     if (!emoCalendar[year][month][date]){
         emoCalendar[year][month][date] = {};
+        setEmotion(date);
+        document.querySelector('#emoBtn').value = "😄";
+    } else {
+        document.querySelector('#emoBtn').value = emoCalendar[year][month][date].emo;
     }
+}
+
+function setEmotion(emo){
+    const t = new Date();
+    const year = t.getFullYear();
+    const month = t.getMonth() + 1;
+    const date = t.getDate();
+    const day = t.getDay();
+    updateEmotion(year, month, date, day, emo);
+}
+
+
+function updateEmotion(year, month, date, day, emo){
+    let emoCalendar = JSON.parse(localStorage['emoCalendar']);
+    // if (!emoCalendar){
+    //     emoCalendar = {}
+    // }
+    // if (!emoCalendar[year]){
+    //     emoCalendar[year] = {};
+    // }
+    // if (!emoCalendar[year][month]){
+    //     emoCalendar[year][month] = {};
+    // }
+    // if (!emoCalendar[year][month][date]){
+    //     emoCalendar[year][month][date] = {};
+    // }
 
     emoCalendar[year][month][date]['day'] = day;
     emoCalendar[year][month][date]['emo'] = emo;
