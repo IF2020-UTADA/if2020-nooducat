@@ -512,7 +512,7 @@ var tryTips = {
     },
     breakfast: {
         choices:[{
-            text: "Chocolate Cake",
+            text: "XX Cake",
             supplement:"for breakfast?",
             image: "./images/cake.jpg",
         }]
@@ -526,12 +526,12 @@ var tryTips = {
                 image: "./images/Vegan-Pumpkin-Spice-Latte.jpg",
             },
             {
-                text:"Light Cinnamon Roll Mocha",
+                text:"Cinnamon Roll Mocha",
                 supplement:"for coffee?",
                 image: "./images/healthy-cinnamon-roll-mocha.jpg"
             },
             {
-                text:"Lavender Honey Lattes",
+                text:"Lavender Honey Iced Lattes",
                 supplement:"for coffee?",
                 image: "./images/Refreshing Lavender Honey Iced Lattes.jpg"
             }]
@@ -540,13 +540,18 @@ var tryTips = {
         {
             choices:[{
                 text: "Training Arm Muscles",
-                supplement:"recommand: Pushups + Biceps Curl",
+                supplement:"today?",
                 image: "./images/arm-muscles.jpg",               
             },
             {
-                text: "Green Smoothie",
-                supplement:"and do some exercises?",
+                text: "Veggie Smoothie",
+                supplement:"then workout?",
                 image: "./images/pre-workout-smoothie.jpg",
+            },
+            {
+                text: "Workout Snack",
+                supplement:"after workout?",
+                image: "./images/pre-workout-snack.jpg",
             }]
         },
         {
@@ -554,6 +559,11 @@ var tryTips = {
                 text: "Mango Green Tea",
                 supplement:"while chatting?",
                 image: "./images/mango-greentea.jpg",               
+            },
+            {
+                text: "Lemonade",
+                supplement:"while chatting?",
+                image: "./images/lemonade.jpg",               
             }]
         },
     ],
@@ -562,22 +572,49 @@ var tryTips = {
         text: "Taco",
         supplement:"for lunch?",
         image: "./images/taco.jpg",    
-    }]
+    },
+    {
+        text: "Spaghetti",
+        supplement:"for lunch?",
+        image: "./images/spaghetti.jpg",
+    },
+    {
+        text: "Mapo Tofu",
+        supplement:"for lunch?",
+        image: "./images/mapo-tofu.jpg",
+    }    
+]
     },
     afternoon: [
         {
             choices:[{
             text: "Crepe",
-            supplement:"for afternoon-tea?",
+            supplement:"while resting?",
             image: "./images/crepe.jpg",    
+            },
+            {
+                text: "XX Cake",
+                supplement:"while resting?",
+                image: "./images/cake.jpg",
             }]
         },
         {
             choices:[{
                 text: "Jazz Music",
                 supplement:"while walking?",
-                image: "./images/jazz.jpeg",    
-            }]
+                image: "./images/jazz.jpg",    
+            },
+            {
+                text: "Light Music",
+                supplement:"while walking?",
+                image: "./images/richard.jpg",               
+            },
+        {
+            text: "Some snacks",
+            supplement:"before walk?",
+            image: "./images/pre-workout-snack.jpg",               
+
+        }]
 
         },
     ],
@@ -664,7 +701,7 @@ var localTips = {
         },
         {
             textOne:"Go to ...",
-            textTwo:"Blue Jay vs Red Sox",
+            textTwo:"Blue Jay VS Red Sox",
             image: "./images/bluejay.jpg"
         },
         {
@@ -674,18 +711,18 @@ var localTips = {
         },
         {
             textOne:"Go see the ...",
-            textTwo:"perseid meteor",
+            textTwo:"Perseid Meteor",
             image: "./images/perseid meteor.jpg"
         },
         {
-            textOne:"Go to the ...",
+            textOne:"Go to AGO's ...",
             textTwo:"Picasso: Painting the Blue Period",
             image: "./images/picasso.jpg"
         },
         {
-            textOne:"Go to the ...",
-            textTwo:" Imagine Dragon at Casa Loma",
-            image: "./images/casaloma.jpg"
+            textOne:"Go see ...",
+            textTwo:"Firework at CN Tower",
+            image: "./images/firework.jpg"
         },              
     ]
 }
