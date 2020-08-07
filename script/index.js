@@ -20,9 +20,6 @@ const nightTime = 20;
 let activityTrack = ["morning", -1];
 
 document.addEventListener("DOMContentLoaded", () => {
-    // get local webs
-    
-
     // get time
     const time = new Date();
 
@@ -58,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (h >= 24 || h <= 4) {
         // night
         getActivity('night');
+        // getActivity('morning');
     } else if (h >= 5 && h <= dayTime) {
         // wakeup
         getActivity('wakeup');
@@ -183,6 +181,8 @@ function popUp() {
             bg: w.bg,
         });
     }
+
+    let time = new Date();
     if (time.getHours() >= nightTime || time.getHours() <= dayTime) {
         setDarkMode();
     }
@@ -231,7 +231,7 @@ function initializeEmotion(d){
         setEmotion(date);
         document.querySelector('#emoBtn').value = "😄";
     } else {
-        document.querySelector('#emoBtn').value = emoCalendar[year][month][date].emo;
+        document.querySelector('#emoBtn').value = emoCalendar[year][month][date]["emo"];
     }
 }
 
@@ -522,17 +522,17 @@ var tryTips = {
             
             choices:[{
                 text: "Vegan Pumpkin Spice Latte",
-                supplement:"for coffe?",
+                supplement:"for coffee?",
                 image: "./images/Vegan-Pumpkin-Spice-Latte.jpg",
             },
             {
                 text:"Light Cinnamon Roll Mocha",
-                supplement:"for coffe?",
+                supplement:"for coffee?",
                 image: "./images/healthy-cinnamon-roll-mocha.jpg"
             },
             {
-                text:"Refreshing Lavender Honey Iced Lattes",
-                supplement:"for coffe?",
+                text:"Lavender Honey Lattes",
+                supplement:"for coffee?",
                 image: "./images/Refreshing Lavender Honey Iced Lattes.jpg"
             }]
             
@@ -544,7 +544,7 @@ var tryTips = {
                 image: "./images/arm-muscles.jpg",               
             },
             {
-                text: "Pre-workout Green Smoothie",
+                text: "Green Smoothie",
                 supplement:"and do some exercises?",
                 image: "./images/pre-workout-smoothie.jpg",
             }]
@@ -597,7 +597,7 @@ var tryTips = {
                 image: "./images/hamlet.jpg",    
             },    
             {
-                text: "Harry Potter And The Order Of The Phoenix",
+                text: "Harry Potter",
                 supplement:"to read?",
                 image: "./images/harrypotter.jpg",    
 
@@ -720,19 +720,19 @@ var newsLinks = [
 
 var suggestionLinks = [
     {
-        title: "What to do after Ontario Entering Stage 3 of Reopening",
+        title: "What to do after Stage 3 of Reopening",
         link: "https://www.ontario.ca/page/reopening-ontario",
-        pic: "https://s.yimg.com/ny/api/res/1.2/KW8QDZ7j.J8mQAZ2V2b4hg--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-images/2020-06/3e0cf010-b7cf-11ea-bebe-542d0cdee968",
+        pic: "https://torontostoreys.com/wp-content/uploads/2020/04/afterlife_photography_92990455_825895884580923_5293583967685592644_n.jpg",
     },
     {
         title: "What to expect during the NBA’s return",
         link: "https://www.sbnation.com/nba/2020/7/29/21335877/nba-preview-orlando-restart-check-in",
-        pic: "https://cdn.vox-cdn.com/thumbor/Qa8HVyp6xVSxfil3cpCoR7h4byY=/1400x1050/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/20668996/NBA.png",
+        pic: " https://www.nbcsports.com/philadelphia/sites/csnphilly/files/styles/article_hero_image/public/2020/06/04/nba_return_thumbnail.jpg?itok=K6gnNXs_",
     },
     {
-        title: "League of Legends Global Power Rankings",
-        link: "https://www.espn.com/esports/story/_/id/29590341/league-legends-global-power-rankings-august-3",
-        pic: "https://a3.espncdn.com/combiner/i?img=%2Fphoto%2F2018%2F1013%2Fr446321_1296x729_16%2D9.jpg",
+        title: "A Total War Saga: Troy—everything we know",
+        link: "https://www.pcgamer.com/everything-we-know-about-a-total-war-saga-troy/",
+        pic: "https://cdn.cloudflare.steamstatic.com/steam/apps/1099410/ss_16ee38bc88ec0db58b534343c88eefb8b8c31880.1920x1080.jpg?t=1591115637",
     },
     {
         title: "SNH48 7th general election",
@@ -740,19 +740,39 @@ var suggestionLinks = [
         pic: "https://snh48.today/wp-content/uploads/2020/07/a04b2a1dgy1gggi3zmnd3j21z59kxx6z1.jpg",
     },
     {
-        title: "The Best New Movies of 2020",
-        link: "https://www.marieclaire.com/culture/a30268835/best-movies-2020/", 
-        pic: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-films-pramount-mgm-disney-marvel-1576773341.jpg?crop=0.496xw:0.990xh;0.252xw,0&resize=480:*",
+        title: "Lee Byung-hun’s ‘Man Standing Next’ Secures 2020 Asia Theatrical Releases",
+        link: "https://variety.com/2019/film/asia/lee-byung-hun-man-standing-next-asian-releases-1203426914/", 
+        pic: "https://pmcvariety.files.wordpress.com/2019/12/msn_re-showbox.jpg?w=1024&h=734",
     },
     {
-        title: "Top TV Series In 2020", 
-        link: "https://www.rottentomatoes.com/top-tv/",
-        pic: "https://assets3.thrillist.com/v1/image/2866404/381x254/scale;jpeg_quality=65.jpg",
+        title: "Is The Rise of Phoenixes based on a true story?", 
+        link: "https://www.thecinemaholic.com/the-rise-of-the-phoenixes-netflix/",
+        pic: "https://i.pinimg.com/originals/4c/71/ab/4c71abffb63730dde81d97adf29a89a8.jpg",
     },
     {
-        title: "11 Great Toronto Shopping Spots", 
-        link: "https://www.tripsavvy.com/great-toronto-shopping-spots-1482044",
-        pic: "https://www.telegraph.co.uk/content/dam/Travel/Destinations/North%20America/Canada/Toronto---Shopping---Eaton-Centre.jpg",
+        title: "Album Review: Land Of Talk – Indistinct Conversations", 
+        link: "https://newnoisemagazine.com/album-review-land-of-talk-indistinct-conversations/",
+        pic: "https://newnoisemagazine.com/wp-content/uploads/2020/07/Land-of-Talk-Indistinct-Conversations-e1595875945855.jpg",
+    },
+    {
+        title: "UNIQLO: Doraemon's 50th anniversary UT",
+        link: "https://www.uniqlo.com/jp/en/contents/feature/ut-magazine/s37/",
+        pic: "https://www.uniqlo.com/jp/ja/contents/feature/ut-magazine/img/s37/contents-4.jpg",
+    },
+    {
+        title: "Introduction to Dislike: an atypical time management tool",
+        link: "https://sspai.com/post/61390",
+        pic: "https://cdn.sspai.com/2020/07/11/98b2f3afd5f0ffe284ca78e75209a9ba.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1",
+    },
+    {
+        title: "Rise of Toronto's modern franchise",
+        link: "https://ottawacitizen.com/life/food/rise-of-ottawas-modern-franchise-whats-behind-ottawas-changing-food-scene",
+        pic: "http://news.superlife.ca/wp-content/blogs.dir/2/files/images/2016/06/211627a1Y.jpg",
+    },
+    {
+        title: "Do you really understand true wireless headphones?",
+        link: "https://sspai.com/post/61753",
+        pic: "https://cdn.sspai.com/2020/07/28/58c3f860469bab6f7f1eb8e5dc0e5abe.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1",
     },
 ]
 

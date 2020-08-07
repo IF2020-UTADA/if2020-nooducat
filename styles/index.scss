@@ -443,6 +443,7 @@ body {
     border: none;
     // box-shadow: 1px 1px 5px gray;
     // @extend %shadow;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #note:focus {
@@ -555,7 +556,7 @@ body {
             width: 100%;
             
             .bottom-line {
-                bottom: 1rem;            
+                bottom: .5rem;            
             }
     
         }
