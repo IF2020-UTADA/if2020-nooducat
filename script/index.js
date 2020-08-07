@@ -106,14 +106,23 @@ document.addEventListener("DOMContentLoaded", () => {
     updateWebLinks();
 
     // add suggestion
-    for (let s of suggestionLinks) {
+    let suggList = [];
+    while (suggList.length < 2){
+        const num = Math.floor(Math.random() * suggestionLinks.length);
+        if (! suggList.includes(num)){
+            suggList.push(num);
+        }
+    }
+    
+    for (let rand of suggList){
         document.querySelector('#suggestColSec').innerHTML += suggestion({
-
-            title: s.title,
-            link: s.link,
-            pic: s.pic,
+            title: suggestionLinks[rand].title,
+            links: suggestionLinks[rand].link,
+            pic: suggestionLinks[rand].pic, 
         });
     }
+
+    
     // set mode
     if (time.getHours() >= nightTime || time.getHours() <= dayTime) {
         setDarkMode();
@@ -711,9 +720,9 @@ var newsLinks = [
 
 var suggestionLinks = [
     {
-        title: "Reopening Ontario: Entering Stage 3",
+        title: "What to do after Ontario Entering Stage 3 of Reopening",
         link: "https://www.ontario.ca/page/reopening-ontario",
-        pic: "https://files.ontario.ca/stage1plan-image1-en.jpg",
+        pic: "https://s.yimg.com/ny/api/res/1.2/KW8QDZ7j.J8mQAZ2V2b4hg--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-images/2020-06/3e0cf010-b7cf-11ea-bebe-542d0cdee968",
     },
     {
         title: "What to expect during the NBA’s return",
@@ -729,6 +738,21 @@ var suggestionLinks = [
         title: "SNH48 7th general election",
         link: "https://snh48g.fandom.com/wiki/7th_General_Election",
         pic: "https://snh48.today/wp-content/uploads/2020/07/a04b2a1dgy1gggi3zmnd3j21z59kxx6z1.jpg",
+    },
+    {
+        title: "The Best New Movies of 2020",
+        link: "https://www.marieclaire.com/culture/a30268835/best-movies-2020/", 
+        pic: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-films-pramount-mgm-disney-marvel-1576773341.jpg?crop=0.496xw:0.990xh;0.252xw,0&resize=480:*",
+    },
+    {
+        title: "Top TV Series In 2020", 
+        link: "https://www.rottentomatoes.com/top-tv/",
+        pic: "https://assets3.thrillist.com/v1/image/2866404/381x254/scale;jpeg_quality=65.jpg",
+    },
+    {
+        title: "11 Great Toronto Shopping Spots", 
+        link: "https://www.tripsavvy.com/great-toronto-shopping-spots-1482044",
+        pic: "https://www.telegraph.co.uk/content/dam/Travel/Destinations/North%20America/Canada/Toronto---Shopping---Eaton-Centre.jpg",
     },
 ]
 
